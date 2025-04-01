@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import Footer from './components/Footer.vue'  
 </script>
 
 <template>
 
   <RouterView />
+  <Footer />
 </template>
 
 <style scoped>
@@ -69,4 +71,6 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+
+
 </style>
