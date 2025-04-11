@@ -1,10 +1,12 @@
 <template>
     <footer class="modern-footer">
         <div class="footer-content">
+
             <!-- Sección 1: Logo y descripción -->
             <div class="footer-section">
                 <div class="logo-container">
-                    <img src=# alt="Logo" class="footer-logo" />
+                    <img src="@/assets/img/Logo.jpg" alt="Logo" class="footer-logo" />
+
                     <p class="footer-description">
                         Tu ciudad en un clic: Descubre, explora y conecta con lo mejor de la región.
                     </p>
@@ -13,7 +15,7 @@
 
             <!-- Sección 2: Enlaces rápidos -->
             <div class="footer-section">
-                <h3 class="footer-title">Enlaces rápidos</h3>
+                <h3 class="footer-title text-[#F76C5E] font-bold">Enlaces rápidos</h3>
                 <ul class="footer-links">
                     <li>
                         <RouterLink to="/">Inicio</RouterLink>
@@ -23,7 +25,7 @@
                     </li>
                     <li>
                         <RouterLink to="/services">Servicios</RouterLink>
-                    </li>                   
+                    </li>
                     <li>
                         <RouterLink to="/contact">Contacto</RouterLink>
                     </li>
@@ -32,31 +34,46 @@
 
             <!-- Sección 3: Contacto -->
             <div class="footer-section">
-                <h3 class="footer-title">Contacto</h3>
+                <h3 class="footer-title text-[#F76C5E] font-bold">Contacto</h3>
                 <ul class="contact-info">
-                    <li><i class="fas fa-envelope"></i> CochaGo@gmail.com</li>
-                    <li><i class="fas fa-phone"></i> +591 12345678</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Cochabamba, Bolivia</li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:Cocha_GO@outlook.com">CochaGo@gmail.com</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/59179367210" target="_blank" rel="noopener">+591 79367210</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/59175946778" target="_blank" rel="noopener">+591 75946778</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/59161602302" target="_blank" rel="noopener">+591 61602302</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Cochabamba, Bolivia
+                    </li>
                 </ul>
             </div>
 
             <!-- Sección 4: Redes sociales -->
             <div class="footer-section">
-                <h3 class="footer-title">Síguenos</h3>
+                <h3 class="footer-title text-[#F76C5E] font-bold">Síguenos</h3>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                </div>               
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
         </div>
 
         <!-- Copyright -->
         <div class="footer-bottom">
             <p>&copy; {{ currentYear }} CochaGO. Todos los derechos reservados.</p>
-            <div class="legal-links">
+            <div class="legal-links text-[#F76C5E] font-bold">
                 <RouterLink to="/privacy">Política de Privacidad</RouterLink>
                 <RouterLink to="/terms">Términos de Servicio</RouterLink>
             </div>
@@ -90,25 +107,28 @@ const currentYear = ref(new Date().getFullYear());
 
 .footer-section {
     margin-bottom: 1.5rem;
-    
+
 }
 
 .footer-logo {
-    height: 40px;
+    height: 80px;
     margin-bottom: 1rem;
 }
 
+
+
 .footer-description {
     font-size: 0.9rem;
-    line-height: 1.5;   
+    line-height: 1.5;
     color: #17A589;
+
 }
 
 .footer-title {
     font-size: 1.1rem;
     margin-bottom: 1.2rem;
     position: relative;
-    padding-bottom: 0.5rem;    
+    padding-bottom: 0.5rem;
 }
 
 .footer-title::after {
@@ -124,21 +144,24 @@ const currentYear = ref(new Date().getFullYear());
 .footer-links {
     list-style: none;
     padding: 0;
-    
+    color: #17A589;
+
 }
 
 .footer-links li {
     margin-bottom: 0.6rem;
+    color: #17A589;
 }
 
 .footer-links a {
     color: #bdc3c7;
     text-decoration: none;
     transition: color 0.3s;
+    color: #17A589;
 }
 
 .footer-links a:hover {
-    color: #3498db;
+    color: #F76C5E;
 }
 
 .contact-info {
@@ -151,6 +174,10 @@ const currentYear = ref(new Date().getFullYear());
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.contact-info a:hover {
+    color: #F76C5E;
 }
 
 .social-links {
@@ -172,7 +199,7 @@ const currentYear = ref(new Date().getFullYear());
 }
 
 .social-links a:hover {
-    background-color: #3498db;
+    background-color: #F76C5E;
     transform: translateY(-3px);
 }
 
