@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue';
 import TurismoView from '@/views/TurismoView.vue';
-
+import Negocios from '@/views/Negocios.vue';
+import Profesiones from '@/views/Profesiones.vue';
+import Gastronomia from '@/views/Gastronomia.vue';
+import Entretenimiento from '@/views/Entretenimiento.vue';
+import Turis from '@/views/Turis.vue';
 
 
 const router = createRouter({
@@ -22,6 +26,32 @@ const router = createRouter({
       path: '/turismo',
       name: 'Turismo',
       component: TurismoView,
+    },
+    {
+      path: '/negocios',
+      name: 'Negocios',
+      component: Negocios
+    },
+
+    {
+      path: '/profesiones',
+      name: 'Profesiones',
+      component: Profesiones
+    },
+    {
+      path: '/gastronomia',
+      name: 'gastronomia',
+      component: Gastronomia
+    },
+    {
+      path: '/entretenimiento',
+      name: 'entretenimiento',
+      component: Entretenimiento
+    },
+    {
+      path: '/turis',
+      name: 'turis',
+      component: Turis
     },
 
   ],
