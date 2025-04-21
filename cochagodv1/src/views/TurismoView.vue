@@ -1,16 +1,19 @@
 <template>
-  <section class="m-8 p-4 md:p-8">
+  <section class="p-4 md:p-14">
     <h1 class="text-3xl font-bold text-center mb-6">Turismo</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div v-for="lugar in lugares" :key="lugar.id" class="bg-white shadow-lg rounded-2xl p-4">
-        <img :src="lugar.imagen" :alt="lugar.nombre" class="rounded-xl w-full h-48 object-cover" />
-        <h2 class="text-xl font-semibold mt-3">{{ lugar.nombre }}</h2>
-        <p class="text-sm mt-2 text-gray-600">{{ lugar.descripcion }}</p>
-      </div>
+      <router-link v-for="lugar in lugares" :key="lugar.id" :to="`/turismo/${lugar.id}`" class="block">
+        <div class="bg-white shadow-lg rounded-2xl p-4 hover:shadow-xl transition-shadow duration-300">
+          <img :src="lugar.imagen" :alt="lugar.nombre" class="rounded-xl w-full h-48 object-cover" />
+          <h2 class="text-xl font-semibold mt-3">{{ lugar.nombre }}</h2>
+          <p class="text-sm mt-2 text-gray-600">{{ lugar.descripcion }}</p>
+        </div>
+      </router-link>
     </div>
   </section>
 </template>
+
 
 <script setup>
 const lugares = [
