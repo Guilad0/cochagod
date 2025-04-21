@@ -1,31 +1,53 @@
 <template>
-  <div class="w-full h-screen bg-yellow-50 flex items-center justify-center px-4">
-    <div class="max-w-6xl text-center space-y-6">
-      <h2 class="text-4xl font-bold text-yellow-600">Gastronomía</h2>
-      <p class="text-gray-700 text-lg">
-        Saborea la diversidad de sabores cochabambinos con platos típicos, cafés
-        acogedores y propuestas innovadoras.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        <div class="bg-white shadow-xl rounded-xl p-6">
-          <h3 class="text-xl font-semibold text-yellow-500">Silpancho</h3>
-          <p class="text-sm text-gray-600">Plato insignia de la región.</p>
-        </div>
-        <div class="bg-white shadow-xl rounded-xl p-6">
-          <h3 class="text-xl font-semibold text-yellow-500">Casas de té</h3>
-          <p class="text-sm text-gray-600">Espacios cálidos y elegantes.</p>
-        </div>
-        <div class="bg-white shadow-xl rounded-xl p-6">
-          <h3 class="text-xl font-semibold text-yellow-500">Cocina fusión</h3>
-          <p class="text-sm text-gray-600">Lo tradicional con toques modernos.</p>
-        </div>
+  <section class="pt-24 px-4 md:px-14">
+    <h1 class="text-3xl font-bold text-center mb-6">{{ titulo }}</h1>
+
+    <input v-model="busqueda" type="text" placeholder="Buscar..."
+      class="w-full md:w-1/2 mx-auto mb-6 p-2 border border-gray-300 rounded-lg block" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div v-for="item in filtrados" :key="item.id" class="bg-white shadow-lg rounded-2xl p-4">
+        <img :src="item.imagen" :alt="item.nombre" class="rounded-xl w-full h-48 object-cover" />
+        <h2 class="text-xl font-semibold mt-3">{{ item.nombre }}</h2>
+        <p class="text-sm mt-2 text-gray-600">{{ item.descripcion }}</p>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<script>
-export default {};
-</script>
+<script setup>
+import { ref, computed } from 'vue'
 
-<style></style>
+
+const titulo = 'Gastronomía'
+
+const items = ref([
+  {
+    id: 1,
+    nombre: 'Café Paris',
+    descripcion: 'Un rincón acogedor para los amantes del café.',
+    imagen: '/img/cafe.jpg',
+
+  },
+  {
+    id: 2,
+    nombre: 'Restaurante El Gordo',
+    descripcion: 'Comida tradicional con un toque familiar.',
+    imagen: '/img/restaurante.jpg',
+  },
+  {
+    id: 3,
+    nombre: 'Pollos Panchita',
+    descripcion: 'Deliciosamente familiar.',
+    imagen: '/img/restaurante.jpg',
+  },
+])
+
+const busqueda = ref('')
+
+const filtrados = computed(() =>
+  items.value.filter((i) =>
+    i.nombre.toLowerCase().includes(busqueda.value.toLowerCase())
+  )
+)
+</script>

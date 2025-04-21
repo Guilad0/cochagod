@@ -5,7 +5,7 @@ import Negocios from '@/views/Negocios.vue';
 import Profesiones from '@/views/Profesiones.vue';
 import Gastronomia from '@/views/Gastronomia.vue';
 import Entretenimiento from '@/views/Entretenimiento.vue';
-import Turis from '@/views/Turis.vue';
+import DetalleTuris from '@/views/DetalleTuris.vue';
 
 
 const router = createRouter({
@@ -49,9 +49,9 @@ const router = createRouter({
       component: Entretenimiento
     },
     {
-      path: '/turis',
-      name: 'turis',
-      component: Turis
+      path: '/turismo/:id', 
+      name: 'DetalleTuris',
+      component: DetalleTuris 
     },
 
   ],
