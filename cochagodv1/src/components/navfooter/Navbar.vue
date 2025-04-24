@@ -2,10 +2,11 @@
   <nav
     :class="[
       ' fixed w-full transition-all duration-500 ',
-      isScrolled ? 'bg-transparent/60 backdrop-blur-md' : 'bg-transparent ',
+      isScrolled ? 'bg-transparent/100 backdrop-blur-xl' : 'bg-transparent ',
     ]"
+    class="absolute top-0 left-0 z-50"
   >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex-shrink-0 flex items-center">
           <a href="#" class="text-xl md:text-2xl font-bold tracking-wide group">
@@ -19,10 +20,11 @@
               class="transition-all duration-300 ease-in-out group-hover:text-orange-500"
               >GO</span
             >
+            <!-- <img src="@/assets/img/logo.jpg" alt="" class="w-30 h-14" /> -->
           </a>
         </div>
 
-        <div class="hidden md:flex items-center space-x-6 text-xl">
+        <div class="hidden md:flex items-center space-x-6 text-sm justify-between">
           <NavLink
             v-for="(item, index) in navItems"
             :key="`desktop-${index}`"
@@ -36,7 +38,7 @@
             <input
               type="text"
               placeholder="Buscar destinos..."
-              :class="isScrolled ? 'bg-gray-800' : 'bg-gray-700'"
+              :class="isScrolled ? 'bg-black/40' : 'bg-black/50'"
               class="border-none rounded-md py-1 px-3 w-40 lg:w-48 text-sm text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:w-56 transition-all duration-300 placeholder-gray-400"
               @focus="isDesktopSearchFocused = true"
               @blur="isDesktopSearchFocused = false"
@@ -77,9 +79,7 @@
           <button
             @click="toggleMenu"
             :class="
-              isScrolled
-                ? 'text-gray-300 hover:bg-gray-700'
-                : 'text-black hover:bg-gray-800'
+              isScrolled ? 'text-black hover:bg-teal-500' : 'text-black hover:bg-teal-500'
             "
             class="p-2 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 ease-in-out"
             :aria-expanded="isMenuOpen"
@@ -118,6 +118,7 @@
       >
         <div v-if="isMenuOpen" class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <NavLink
+            class="text-sm"
             v-for="(item, index) in navItems"
             :key="`mobile-${index}`"
             :href="item.href"
