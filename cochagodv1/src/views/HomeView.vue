@@ -1,12 +1,11 @@
 <script setup>
 import Cochamodel from "@/components/ModelCocha.vue";
-import Entretenimiento from "./Entretenimiento.vue";
-import Gastronomia from "./Gastronomia.vue";
-import Negocios from "./Negocios.vue";
-import Profesiones from "./Profesiones.vue";
+// import Entretenimiento from "./Entretenimiento.vue";
+// import Gastronomia from "./Gastronomia.vue";
+// import Negocios from "./Negocios.vue";
+// import Profesiones from "./Profesiones.vue";
 import Descubre from "@/components/Descubre.vue";
 import HPage from "@/components/HPage.vue";
-import Pierdete from "@/components/Pierdete.vue";
 </script>
 
 <template>
