@@ -1,12 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue';
-import TurismoView from '@/views/TurismoView.vue';
-import Negocios from '@/views/Negocios.vue';
-import Profesiones from '@/views/Profesiones.vue';
-import Gastronomia from '@/views/Gastronomia.vue';
-import Entretenimiento from '@/views/Entretenimiento.vue';
-import DetalleTuris from '@/views/DetalleTuris.vue';
+// import TurismoView from '@/views/TurismoView.vue';
+// import Negocios from '@/views/Negocios.vue';
+// import Profesiones from '@/views/Profesiones.vue';
+// import Gastronomia from '@/views/Gastronomia.vue';
+// import Entretenimiento from '@/views/Entretenimiento.vue';
+// import DetalleTuris from '@/views/DetalleTuris.vue';
 import RestaurantesView from '@/views/RestaurantesView.vue';
+import EntretenimientoView from '@/views/EntretenimientoView.vue';
+import Alojamientos from '@/views/Alojamientos.vue';
+import ServiciosView from '@/views/ServiciosView.vue';
+import TurismoV from '@/views/TurismoV.vue';
 
 
 const router = createRouter({
@@ -23,37 +27,7 @@ const router = createRouter({
       name: 'Home',
       component: HomeView
     }, 
-    {
-      path: '/turismo',
-      name: 'Turismo',
-      component: TurismoView,
-    },
-    {
-      path: '/negocios',
-      name: 'Negocios',
-      component: Negocios
-    },
-
-    {
-      path: '/profesiones',
-      name: 'Profesiones',
-      component: Profesiones
-    },
-    {
-      path: '/gastronomia',
-      name: 'gastronomia',
-      component: Gastronomia
-    },
-    {
-      path: '/entretenimiento',
-      name: 'entretenimiento',
-      component: Entretenimiento
-    },
-    {
-      path: '/turismo/:id', 
-      name: 'DetalleTuris',
-      component: DetalleTuris 
-    },
+   
     {
       path: '/gastronomia/:id',
       name: 'TarjetaGastro',
@@ -63,6 +37,29 @@ const router = createRouter({
       path: '/restaurantes',
       name: 'restaurantes',
       component: RestaurantesView
+    },
+    {
+      path: '/entretenimiento',
+      name: 'entretenimiento',
+      component: EntretenimientoView
+    }
+    ,
+    {
+      path: '/alojamientos',
+      name: 'alojamientos',
+      component: Alojamientos
+    }
+    ,
+    {
+      path: '/servicios',
+      name: 'servicios',
+      component: ServiciosView
+    }
+    ,
+    {
+      path: '/turismo',
+      name: 'turismo',
+      component: TurismoV
     }
     
 

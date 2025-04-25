@@ -296,8 +296,8 @@ interface NavItem {
 const navItems: NavItem[] = [
   { text: "Inicio", href: "/" },
   { text: "Comercios", href: "/restaurantes" },
-  { text: "Entretenimiento", href: "/entre" },
-  { text: "Alojamiento", href: "/hoteles" },
+  { text: "Entretenimiento", href: "/entretenimiento" },
+  { text: "Alojamiento", href: "/alojamientos" },
   { text: "Turismo", href: "/turismo" },
 ];
 
