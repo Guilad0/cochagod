@@ -6,6 +6,7 @@ import Profesiones from '@/views/Profesiones.vue';
 import Gastronomia from '@/views/Gastronomia.vue';
 import Entretenimiento from '@/views/Entretenimiento.vue';
 import DetalleTuris from '@/views/DetalleTuris.vue';
+import RestaurantesView from '@/views/RestaurantesView.vue';
 
 
 const router = createRouter({
@@ -58,6 +59,11 @@ const router = createRouter({
       name: 'TarjetaGastro',
       component: () => import('@/views/TarjetaGastro.vue'),
     },
+    {
+      path: '/restaurantes',
+      name: 'restaurantes',
+      component: RestaurantesView
+    }
     
 
   ],

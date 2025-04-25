@@ -39,7 +39,7 @@
               type="text"
               placeholder="Buscar destinos..."
               :class="isScrolled ? 'bg-black/40' : 'bg-black/50'"
-              class="border-none rounded-md py-1 px-3 w-40 lg:w-48 text-sm text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:w-56 transition-all duration-300 placeholder-gray-400"
+              class="border-none rounded-md py-1 px-3 w-40 lg:w-48 text-sm text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:w-56 transition-all duration-300"
               @focus="isDesktopSearchFocused = true"
               @blur="isDesktopSearchFocused = false"
               ref="desktopSearchInput"
@@ -295,7 +295,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { text: "Inicio", href: "/" },
-  { text: "Comercios", href: "/comer" },
+  { text: "Comercios", href: "/restaurantes" },
   { text: "Entretenimiento", href: "/entre" },
   { text: "Alojamiento", href: "/hoteles" },
   { text: "Turismo", href: "/turismo" },
