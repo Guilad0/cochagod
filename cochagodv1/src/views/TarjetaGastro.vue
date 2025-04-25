@@ -36,7 +36,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
-// 🧪 Datos simulados (cuando esté listo el backend, se reemplazan por fetch o pinia)
+//  Datos simulados (cuando esté listo el backend, se reemplazan Johna)
 const restaurantes = ref([
   {
     id: 1,
@@ -75,7 +75,7 @@ const restaurantes = ref([
     ],
   },
  
-  // Agrega más restaurantes aquí si es necesario
+ 
 ])
 
 // Obtener el id desde la URL
