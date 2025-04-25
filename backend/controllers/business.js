@@ -12,6 +12,12 @@ module.exports = {
     else res.status(404).json({ message: "Not found" });
   },
 
+  async getByCategory(req, res) {
+    const data = await service.getByCategory(req.params.categoryId);
+    res.json(data);
+  }
+,
+
   async create(req, res) {
     const data = await service.create(req.body);
     res.status(201).json(data);
