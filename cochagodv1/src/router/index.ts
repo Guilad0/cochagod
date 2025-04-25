@@ -53,6 +53,12 @@ const router = createRouter({
       name: 'DetalleTuris',
       component: DetalleTuris 
     },
+    {
+      path: '/gastronomia/:id',
+      name: 'TarjetaGastro',
+      component: () => import('@/views/TarjetaGastro.vue'),
+    },
+    
 
   ],
 })
