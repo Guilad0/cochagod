@@ -302,38 +302,23 @@ const categoryClasses = {
 const fetchBusinesses = async () => {
   try {
     const response = await axios.get(`${ruta.value}/business/category/4`);
-    businesses.value = response.data;
-    businesses.value = response.data.map((b) => ({
-      ...b,
-      rating: b.rating !== null ? parseFloat(b.rating) : null,
-    }));
-
-    // Datos de ejemplo
-    // businesses.value = [
-    //   {
-    //     id: 1,
-    //     name: "La Cantonata",
-    //     category: "restaurant",
-    //     description:
-    //       "Especializados en comida italiana con toques bolivianos. Prueba nuestro famoso risotto cochabambino.",
-    //     address: "Av. Heroínas, Centro",
-    //     phone: "4245678",
-    //     rating: 4.8,
-    //     image:
-    //       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    //     isFeatured: true,
-    //     zone: "center",
-    //   },
-
-    // ];
+    if (Array.isArray(response.data)) {
+      businesses.value = response.data.map((b) => ({
+        ...b,
+        rating: b.rating !== null ? parseFloat(b.rating) : null,
+      }));
+    } else {
+      console.error("Respuesta inesperada:", response.data);
+      businesses.value = [];
+    }
 
     loading.value = false;
   } catch (error) {
     console.error("Error fetching businesses:", error);
+    businesses.value = [];
     loading.value = false;
   }
 };
-
 const filteredBusinesses = computed(() => {
   let result = [...businesses.value];
 
