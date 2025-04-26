@@ -11,6 +11,7 @@ import EntretenimientoView from '@/views/EntretenimientoView.vue';
 import Alojamientos from '@/views/Alojamientos.vue';
 import ServiciosView from '@/views/ServiciosView.vue';
 import TurismoV from '@/views/TurismoV.vue';
+import Fail from '@/views/Fail.vue';
 
 
 const router = createRouter({
@@ -25,7 +26,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: HomeView
+      component: Fail
     }, 
    
     {
