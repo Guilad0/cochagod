@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue';
+// import HomeView from '@/views/HomeView.vue';
 // import TurismoView from '@/views/TurismoView.vue';
 // import Negocios from '@/views/Negocios.vue';
 // import Profesiones from '@/views/Profesiones.vue';
@@ -18,11 +18,6 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     
-    // {
-    //   path: '/cochagod',
-    //   name: 'cochagod',
-    //   component: Msx
-    // },
     {
       path: '/',
       name: 'Home',
@@ -35,8 +30,8 @@ const router = createRouter({
       component: () => import('@/views/TarjetaGastro.vue'),
     },
     {
-      path: '/restaurantes',
-      name: 'restaurantes',
+      path: '/comercios',
+      name: 'comercios',
       component: RestaurantesView
     },
     {
@@ -62,8 +57,6 @@ const router = createRouter({
       name: 'turismo',
       component: TurismoV
     }
-    
-
   ],
 })
 

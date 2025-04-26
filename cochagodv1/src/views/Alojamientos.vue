@@ -264,6 +264,7 @@ import axios from "axios";
 
 const businesses = ref([]);
 const loading = ref(true);
+const ruta = ref(import.meta.env.VITE_BASE_URL);
 
 const searchQuery = ref("");
 const selectedCategory = ref("all");
@@ -305,7 +306,7 @@ const categoryClasses = {
 
 const fetchBusinesses = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/business/category/37");
+    const response = await axios.get(`${ruta.value}/business/category/3`);
     businesses.value = response.data;
     businesses.value = response.data.map((b) => ({
       ...b,
