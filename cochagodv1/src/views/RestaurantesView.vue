@@ -1,11 +1,11 @@
 <template>
   <div class="">
     <header class="shadow-md mt-13">
-      <div class="container mx-auto px-3 py-4 bg-orange-500">
-        <h1 class="text-3xl font-bold text-white text-center">
-          Nuestros Lugares de Entretenimiento Afiliados
+      <div class="container mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold text-orange-500">
+          Nuestros Caseritos de Negocios de Comercio.
         </h1>
-        <p class="mt-2 text-white text-center">
+        <p class="mt-2 text-orange-400">
           Para jailones, caseritos y todo aquel que quiera llevarse una trocito del
           corazón de Bolivia.
         </p>
@@ -16,7 +16,7 @@
       <div class="container mx-auto px-4 py-4">
         <div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
           <div
-            class="search-box flex-1 bg-white rounded-lg border border-gray-300 flex items-center px-4 py-2 transition-all w-full"
+            class="search-box flex-1 bg-white rounded-lg border border-orange-300 flex items-center px-4 py-2 transition-all w-full"
           >
             <i class="fas fa-search text-gray-400 mr-2"></i>
             <input
@@ -31,14 +31,14 @@
           <div class="w-full md:w-auto">
             <div class="flex flex-wrap gap-2">
               <button
-                v-for="category in categories"
+                v-for="category in subtipos"
                 :key="category.id"
                 @click="filterByCategory(category.id)"
                 :class="[
                   'px-4 py-2 rounded-full text-sm font-medium transition-all',
                   selectedCategory === category.id
-                    ? 'bg-teal-600 text-white'
-                    : 'bg-gray-100 hover:bg-teal-100',
+                    ? 'bg-orange-600 text-white'
+                    : 'bg-gray-100 hover:bg-orange-100',
                 ]"
               >
                 {{ category.name }}
@@ -46,8 +46,8 @@
             </div>
           </div>
         </div>
-
-        <div class="mt-4 flex flex-wrap items-center gap-4">
+        <!-- FILTRO POR ZONA Y DESTACADOS, ETC SELECT HACER CON CALMA -->
+        <!-- <div class="mt-4 flex flex-wrap items-center gap-4">
           <div class="flex items-center">
             <label class="mr-2 text-sm text-gray-600">Ordenar por:</label>
             <select
@@ -75,7 +75,7 @@
               </option>
             </select>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -93,7 +93,9 @@
             @click="viewMode = 'grid'"
             :class="[
               'p-2',
-              viewMode === 'grid' ? 'text-teal-600' : 'text-gray-400 hover:text-teal-600',
+              viewMode === 'grid'
+                ? 'text-orange-600'
+                : 'text-gray-400 hover:text-orange-600',
             ]"
           >
             <i class="fas fa-th-large"></i>
@@ -102,7 +104,9 @@
             @click="viewMode = 'list'"
             :class="[
               'p-2',
-              viewMode === 'list' ? 'text-teal-600' : 'text-gray-400 hover:text-teal-600',
+              viewMode === 'list'
+                ? 'text-orange-600'
+                : 'text-gray-400 hover:text-orange-600',
             ]"
           >
             <i class="fas fa-list"></i>
@@ -116,7 +120,7 @@
         <p class="text-gray-500 mt-2">Prueba con otros filtros o términos de búsqueda</p>
         <button
           @click="resetFilters"
-          class="mt-4 px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-colors"
+          class="mt-4 px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors"
         >
           Reiniciar filtros
         </button>
@@ -153,12 +157,12 @@
             </div>
             <div
               v-if="business.promotion"
-              class="absolute top-2 left-2 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded"
+              class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded"
             >
               Promoción
             </div>
             <div
-              class="absolute bottom-2 right-2 bg-white text-yellow-500 text-sm font-bold px-2 py-1 rounded flex items-center"
+              class="absolute bottom-2 right-2 bg-white text-orange-500 text-sm font-bold px-2 py-1 rounded flex items-center"
             >
               <i class="fas fa-star mr-1"></i> {{ business.rating.toFixed(1) }}
             </div>
@@ -166,17 +170,19 @@
           <div class="p-4">
             <div class="flex justify-between items-start">
               <h3 class="text-xl font-bold text-gray-800">{{ business.name }}</h3>
-              <span
+              <!-- <span
                 :class="[
                   'text-xs px-2 py-1 rounded',
-                  categoryClasses[business.category] || 'bg-gray-100 text-gray-800',
+                  categoryClasses[business.category] ||
+                    'bg-gray-300 text-gray-800 h-10 w-10',
                 ]"
-              >
-                {{ getCategoryName(business.category) }}
-              </span>
+              > -->
+              <!-- IMPORTANTE, AGREGAR LAS RUTAS DINAMICAS DE CADA VIEW -->
+              <!-- <router-link>Ver más.. </router-link> -->
+              <!-- </span> -->
             </div>
             <p class="text-gray-600 mt-1 flex items-center">
-              <i class="fas fa-map-marker-alt text-teal-500 mr-1"></i>
+              <i class="fas fa-map-marker-alt text-orange-500 mr-1"></i>
               {{ business.address }}
             </p>
             <p class="text-gray-700 mt-3 text-sm">{{ business.description }}</p>
@@ -184,13 +190,13 @@
             <div
               class="mt-4 pt-3 border-t border-gray-100 flex justify-between items-center"
             >
-              <div class="flex">
+              <div class="flex flex-row items-center">
                 <i
                   :class="[
                     'mr-2',
                     business.phone
-                      ? 'fas fa-phone-alt text-teal-500'
-                      : 'fas fa-clock text-teal-500',
+                      ? 'fas fa-phone-alt text-orange-500'
+                      : 'fas fa-clock text-orange-500',
                   ]"
                 ></i>
                 <span class="text-sm text-gray-600">
@@ -198,7 +204,9 @@
                 </span>
               </div>
               <div class="">
-                <button class="cursor-pointer px-2">
+                <button
+                  class="cursor-pointer px-2 transition duration-300 hover:scale-110"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -208,20 +216,20 @@
                     width="30"
                   >
                     <path
-                      stroke="#0ad399"
+                      stroke="#FB8C00"
                       stroke-linejoin="round"
                       d="M17 16.5c-1.74 1.74 -5.749 0.257 -7.753 -1.747C7.243 12.749 5.76 8.74 7.5 7c0.504 -0.504 1.198 -0.564 1.622 -0.544 0.245 0.011 0.457 0.155 0.6 0.355l0.952 1.334a1 1 0 0 1 -0.107 1.288l-0.901 0.901c0.166 0.5 0.7 1.7 1.5 2.5s2 1.334 2.5 1.5l0.901 -0.9a1 1 0 0 1 1.288 -0.108l1.334 0.952c0.2 0.143 0.344 0.355 0.355 0.6 0.02 0.424 -0.04 1.118 -0.544 1.622Z"
                       stroke-width="1"
                     ></path>
                     <path
-                      stroke="#0ad399"
+                      stroke="#FB8C00"
                       stroke-linejoin="round"
                       d="M12 22.5c5.799 0 10.5 -4.701 10.5 -10.5S17.799 1.5 12 1.5 1.5 6.201 1.5 12c0 1.912 0.511 3.706 1.405 5.25l-0.88 4.725 4.725 -0.88A10.452 10.452 0 0 0 12 22.5Z"
                       stroke-width="1"
                     ></path>
                   </svg>
                 </button>
-                <button class="cursor-pointer px-2">
+                <button class="cursor-pointer px-2 duration-300 hover:scale-110">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -231,14 +239,14 @@
                     width="30"
                   >
                     <path
-                      stroke="#0ad399"
+                      stroke="#FB8C00"
                       stroke-linejoin="round"
                       d="M22.5 1.5h-21v21H13v-8h-3v-3h3V8a3.5 3.5 0 0 1 3.5 -3.5h3v3H17a1 1 0 0 0 -1 1v3h3l-0.5 3H16v8h6.5v-21Z"
                       stroke-width="1"
                     ></path>
                   </svg>
                 </button>
-                <button class="cursor-pointer px-2">
+                <button class="cursor-pointer px-2 duration-300 hover:scale-110">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -248,7 +256,7 @@
                     width="30"
                   >
                     <path
-                      stroke="#0ad399"
+                      stroke="#FB8C00"
                       stroke-linejoin="round"
                       d="M16 1.5h-3.5V16c0 1.5 -1.5 3 -3 3s-3 -0.5 -3 -3c0 -2 1.899 -3.339 3.5 -3V9.5c-6.12 0 -7 5 -7 6.5s0.977 6.5 6.5 6.5c4.522 0 6.5 -3.5 6.5 -6v-8c1.146 1.018 2.922 1.357 5 1.5V6.5c-3.017 0 -5 -2.654 -5 -5Z"
                       stroke-width="1"
@@ -256,12 +264,20 @@
                   </svg>
                 </button>
               </div>
+              <!-- <div class="flex">
+                <router-link
+                  :to="`/negocios/business/4${business.id}`"
+                  class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center"
+                >
+                  Ver más <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                </router-link>
+              </div> -->
               <!-- <router-link
-                :to="`/negocios/${business.id}`"
-                class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center"
-              >
-                Ver más <i class="fas fa-chevron-right ml-1 text-xs"></i>
-              </router-link> -->
+                  :to="`/negocios/${business.id}`"
+                  class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center"
+                >
+                  Ver más <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                </router-link> -->
             </div>
           </div>
         </div>
@@ -292,7 +308,7 @@
             :class="[
               'px-3 py-1 rounded border',
               page === currentPage
-                ? 'bg-teal-600 text-white border-teal-600'
+                ? 'bg-orange-600 text-white border-orange-600'
                 : 'border-gray-300 text-gray-700 hover:bg-gray-100',
             ]"
           >
@@ -334,14 +350,16 @@ const viewMode = ref("grid");
 const currentPage = ref(1);
 const itemsPerPage = ref(6);
 
-const categories = ref([
+const subtipos = ref([
   { id: "all", name: "Todos" },
-  { id: "restaurant", name: "Restaurantes" },
-  { id: "cafe", name: "Cafeterías" },
-  { id: "hotel", name: "Hoteles" },
-  { id: "shop", name: "Tiendas" },
-  { id: "service", name: "Servicios" },
-  { id: "boliches", name: "Boliches" },
+  { id: "hoteles", name: "Hoteles" },
+  { id: "salud", name: "Salud" },
+  { id: "tecnologia", name: "Tecnología/IT" },
+  { id: "educacion", name: "Educación" },
+  { id: "finanzas", name: "Finanzas" },
+  { id: "servicioslegales", name: "Servicios Legales" },
+  { id: "construccion", name: "Construcción" },
+  { id: "transporte", name: "Transporte" },
   { id: "other", name: "Otros" },
 ]);
 
@@ -383,7 +401,6 @@ const fetchBusinesses = async () => {
     loading.value = false;
   }
 };
-
 const filteredBusinesses = computed(() => {
   let result = [...businesses.value];
 
@@ -398,7 +415,7 @@ const filteredBusinesses = computed(() => {
   }
 
   if (selectedCategory.value !== "all") {
-    result = result.filter((b) => b.category === selectedCategory.value);
+    result = result.filter((b) => b.subtipo === selectedCategory.value);
   }
 
   if (selectedZone.value !== "all") {
@@ -433,7 +450,7 @@ const totalPages = computed(() => {
 });
 
 const getCategoryName = (categoryId) => {
-  const category = categories.value.find((c) => c.id === categoryId);
+  const category = subtipos.value.find((c) => c.id === categoryId);
   return category ? category.name : "General";
 };
 
@@ -478,9 +495,9 @@ onMounted(() => {
 <style scoped>
 .business-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(241, 82, 2, 0.1);
 }
 .search-box:focus-within {
-  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+  box-shadow: 0 0 0 3px rgba(241, 82, 2, 0.1);
 }
 </style>
