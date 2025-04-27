@@ -2,7 +2,7 @@
   <div class="">
     <header class="shadow-md mt-13">
       <div class="container mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold">Negocios Afiliados</h1>
+        <h1 class="text-3xl font-bold text-teal-600">Negocios Afiliados</h1>
         <p class="mt-2">Descubre los mejores establecimientos de Cochabamba</p>
       </div>
     </header>
@@ -26,7 +26,7 @@
           <div class="w-full md:w-auto">
             <div class="flex flex-wrap gap-2">
               <button
-                v-for="category in categories"
+                v-for="category in subtipos"
                 :key="category.id"
                 @click="filterByCategory(category.id)"
                 :class="[
@@ -41,8 +41,8 @@
             </div>
           </div>
         </div>
-
-        <div class="mt-4 flex flex-wrap items-center gap-4">
+        <!-- FILTRO POR ZONA Y DESTACADOS, ETC SELECT HACER CON CALMA -->
+        <!-- <div class="mt-4 flex flex-wrap items-center gap-4">
           <div class="flex items-center">
             <label class="mr-2 text-sm text-gray-600">Ordenar por:</label>
             <select
@@ -70,7 +70,7 @@
               </option>
             </select>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -161,14 +161,16 @@
           <div class="p-4">
             <div class="flex justify-between items-start">
               <h3 class="text-xl font-bold text-gray-800">{{ business.name }}</h3>
-              <span
+              <!-- <span
                 :class="[
                   'text-xs px-2 py-1 rounded',
-                  categoryClasses[business.category] || 'bg-gray-100 text-gray-800',
+                  categoryClasses[business.category] ||
+                    'bg-gray-300 text-gray-800 h-10 w-10',
                 ]"
-              >
-                {{ getCategoryName(business.category) }}
-              </span>
+              > -->
+              <!-- IMPORTANTE, AGREGAR LAS RUTAS DINAMICAS DE CADA VIEW -->
+              <!-- <router-link>Ver más.. </router-link> -->
+              <!-- </span> -->
             </div>
             <p class="text-gray-600 mt-1 flex items-center">
               <i class="fas fa-map-marker-alt text-teal-500 mr-1"></i>
@@ -337,14 +339,16 @@ const viewMode = ref("grid");
 const currentPage = ref(1);
 const itemsPerPage = ref(6);
 
-const categories = ref([
+const subtipos = ref([
   { id: "all", name: "Todos" },
-  { id: "restaurant", name: "Restaurantes" },
-  { id: "cafe", name: "Cafeterías" },
-  { id: "hotel", name: "Hoteles" },
-  { id: "shop", name: "Tiendas" },
-  { id: "service", name: "Servicios" },
-  { id: "boliches", name: "Boliches" },
+  { id: "Doctor", name: "Doctor" },
+  { id: "salud", name: "Salud" },
+  { id: "tecnologia", name: "Tecnología/IT" },
+  { id: "educacion", name: "Educación" },
+  { id: "finanzas", name: "Finanzas" },
+  { id: "servicioslegales", name: "Servicios Legales" },
+  { id: "construccion", name: "Construcción" },
+  { id: "transporte", name: "Transporte" },
   { id: "other", name: "Otros" },
 ]);
 
@@ -400,7 +404,7 @@ const filteredBusinesses = computed(() => {
   }
 
   if (selectedCategory.value !== "all") {
-    result = result.filter((b) => b.category === selectedCategory.value);
+    result = result.filter((b) => b.subtipo === selectedCategory.value);
   }
 
   if (selectedZone.value !== "all") {
@@ -435,7 +439,7 @@ const totalPages = computed(() => {
 });
 
 const getCategoryName = (categoryId) => {
-  const category = categories.value.find((c) => c.id === categoryId);
+  const category = subtipos.value.find((c) => c.id === categoryId);
   return category ? category.name : "General";
 };
 

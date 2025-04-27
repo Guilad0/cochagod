@@ -9,15 +9,15 @@
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex-shrink-0 flex items-center">
-          <a href="#" class="text-xl md:text-2xl font-bold tracking-wide group">
+          <a href="/" class="text-xl md:text-3xl font-bold tracking-wide group font-mono">
             <span
-              :class="isScrolled ? 'text-teal-400' : 'text-teal-300'"
-              class="transition-all duration-300 ease-in-out group-hover:text-teal-300"
+              :class="isScrolled ? 'text-orange-500' : 'text-orange-500'"
+              class="transition-all duration-300 ease-in-out group-hover:text-orange-400"
               >COCHA</span
             >
             <span
-              :class="isScrolled ? 'text-orange-400' : 'text-orange-500'"
-              class="transition-all duration-300 ease-in-out group-hover:text-orange-500"
+              :class="isScrolled ? 'text-teal-400' : 'text-teal-500'"
+              class="transition-all duration-300 ease-in-out group-hover:text-teal-500"
               >GO</span
             >
             <!-- <img src="@/assets/img/logo.jpg" alt="" class="w-30 h-14" /> -->
@@ -62,17 +62,7 @@
               </svg>
             </button>
           </div>
-
-          <button
-            :class="
-              isScrolled
-                ? 'bg-teal-500 hover:bg-teal-600'
-                : 'bg-teal-600 hover:bg-teal-500'
-            "
-            class="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
-          >
-            Probar Suerte!
-          </button>
+          <GetLucky />
         </div>
 
         <div class="flex md:hidden items-center">
@@ -170,16 +160,7 @@
                 </svg>
               </button>
             </div>
-            <button
-              :class="
-                isScrolled
-                  ? 'bg-teal-500 hover:bg-teal-600'
-                  : 'bg-teal-600 hover:bg-teal-500'
-              "
-              class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
-            >
-              Probar Suerte!
-            </button>
+            <GetLucky />
           </div>
         </div>
       </transition>
@@ -187,11 +168,12 @@
   </nav>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
-import { h, defineComponent } from "vue";
+<script setup>
+import { ref, onMounted, onBeforeUnmount, nextTick, h, defineComponent } from "vue";
+import GetLucky from "./GetLucky.vue";
 
-const isScrolled = ref<boolean>(false);
+const isScrolled = ref(false);
+
 window.addEventListener("scroll", () => {
   isScrolled.value = window.scrollY > 50;
 });
@@ -288,12 +270,7 @@ const NavLink = defineComponent({
   },
 });
 
-interface NavItem {
-  text: string;
-  href: string;
-}
-
-const navItems: NavItem[] = [
+const navItems = [
   { text: "Inicio", href: "/" },
   { text: "Comercios", href: "/comercios" },
   { text: "Entretenimiento", href: "/entretenimiento" },
@@ -301,13 +278,13 @@ const navItems: NavItem[] = [
   { text: "Turismo", href: "/turismo" },
 ];
 
-const isMenuOpen = ref<boolean>(false);
-const isMobileFocused = ref<boolean>(false);
-const isDesktopSearchFocused = ref<boolean>(false);
-const mobileSearchInput = ref<HTMLInputElement | null>(null);
-const desktopSearchInput = ref<HTMLInputElement | null>(null);
+const isMenuOpen = ref(false);
+const isMobileFocused = ref(false);
+const isDesktopSearchFocused = ref(false);
+const mobileSearchInput = ref(null);
+const desktopSearchInput = ref(null);
 
-const toggleMenu = (): void => {
+const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 
   if (isMenuOpen.value) {
@@ -317,23 +294,23 @@ const toggleMenu = (): void => {
   }
 };
 
-const handleMobileSearch = (): void => {
+const handleMobileSearch = () => {
   const searchTerm = mobileSearchInput.value?.value || "";
   console.log("Mobile Searching:", searchTerm);
 };
 
-const handleDesktopSearch = (): void => {
+const handleDesktopSearch = () => {
   const searchTerm = desktopSearchInput.value?.value || "";
   console.log("Desktop Searching:", searchTerm);
 };
 
-const handleEscKey = (event: KeyboardEvent): void => {
+const handleEscKey = (event) => {
   if (event.key === "Escape" && isMenuOpen.value) {
     isMenuOpen.value = false;
   }
 };
 
-const handleResize = (): void => {
+const handleResize = () => {
   if (window.innerWidth >= 768 && isMenuOpen.value) {
     isMenuOpen.value = false;
   }
