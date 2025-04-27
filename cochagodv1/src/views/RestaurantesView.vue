@@ -352,14 +352,15 @@ const itemsPerPage = ref(6);
 
 const subtipos = ref([
   { id: "all", name: "Todos" },
-  { id: "hoteles", name: "Hoteles" },
-  { id: "salud", name: "Salud" },
-  { id: "tecnologia", name: "Tecnología/IT" },
-  { id: "educacion", name: "Educación" },
-  { id: "finanzas", name: "Finanzas" },
-  { id: "servicioslegales", name: "Servicios Legales" },
-  { id: "construccion", name: "Construcción" },
-  { id: "transporte", name: "Transporte" },
+  { id: "ropas", name: "Tiendas de Ropa" },
+  { id: "mercados", name: "Mercados" },
+  { id: "juguetes", name: "Tiendas de Juguetes" },
+  { id: "ferreterias", name: "Ferreterías" },
+  { id: "librerias", name: "Librerías" },
+  { id: "muebles", name: "Tiendas de Muebles" },
+  { id: "deportes", name: "Tienda de Deportes" },
+  { id: "licorerias", name: "Licorerias" },
+  { id: "autos", name: "Tiendas de Vehiculos" },
   { id: "other", name: "Otros" },
 ]);
 

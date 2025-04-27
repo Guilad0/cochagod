@@ -347,14 +347,10 @@ const itemsPerPage = ref(6);
 
 const subtipos = ref([
   { id: "all", name: "Todos" },
-  { id: "hoteles", name: "Hoteles" },
-  { id: "salud", name: "Salud" },
-  { id: "tecnologia", name: "Tecnología/IT" },
-  { id: "educacion", name: "Educación" },
-  { id: "finanzas", name: "Finanzas" },
-  { id: "servicioslegales", name: "Servicios Legales" },
-  { id: "construccion", name: "Construcción" },
-  { id: "transporte", name: "Transporte" },
+  { id: "lugares", name: "Emblemas Cochalas" },
+  { id: "parques", name: "Parques y Áreas Naturales" },
+  { id: "centros", name: "Centros Culturales" },
+  { id: "pueblitos", name: "Pueblitos Magicos" },
   { id: "other", name: "Otros" },
 ]);
 
