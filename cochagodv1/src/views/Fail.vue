@@ -47,6 +47,11 @@
           <small class="text-sm text-gray-300">seg</small>
         </div>
       </div>
+      <h1>
+        <span class="text-4xl md:text-6xl font-bold text-orange-400/60 mb-4"
+          >Hora Boliviana</span
+        >
+      </h1>
     </div>
   </div>
 </template>
@@ -55,7 +60,7 @@
 export default {
   data() {
     return {
-      countdownDate: new Date("2025-04-27T00:00:00").getTime(),
+      countdownDate: new Date("2025-04-27T18:00:00").getTime(),
       days: 0,
       hours: 0,
       minutes: 0,
