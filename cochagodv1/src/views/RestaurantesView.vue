@@ -143,7 +143,7 @@
           <div class="relative">
             <img
               :src="
-                business.image ||
+                business.logo_url ||
                 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
               "
               :alt="business.name"
@@ -361,6 +361,7 @@ const subtipos = ref([
   { id: "deportes", name: "Tienda de Deportes" },
   { id: "licorerias", name: "Licorerias" },
   { id: "autos", name: "Tiendas de Vehiculos" },
+  { id: "restaurantes", name: "Restaurantes" },
   { id: "other", name: "Otros" },
 ]);
 
