@@ -1,8 +1,9 @@
 <template>
   <nav
     :class="[
-      ' fixed w-full transition-all duration-500 ',
-      isScrolled ? 'bg-transparent/100 backdrop-blur-xl' : 'bg-transparent ',
+      isScrolled ? 'fixed backdrop-blur-xl' : 'absolute',
+      'top-0 left-0 z-50 w-full transition-all duration-500',
+      'bg-black/10 md:bg-transparent',
     ]"
     class="absolute top-0 left-0 z-50"
   >
@@ -40,8 +41,6 @@
               placeholder="Buscar destinos..."
               :class="isScrolled ? 'bg-black/40' : 'bg-black/50'"
               class="border-none rounded-md py-1 px-3 w-40 lg:w-48 text-sm text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:w-56 transition-all duration-300"
-              @focus="isDesktopSearchFocused = true"
-              @blur="isDesktopSearchFocused = false"
               ref="desktopSearchInput"
             />
             <button
@@ -138,8 +137,6 @@
                 type="text"
                 placeholder="Buscar destinos..."
                 class="bg-transparent border-none w-full text-white focus:outline-none placeholder-gray-400"
-                @focus="isMobileFocused = true"
-                @blur="isMobileFocused = false"
                 ref="mobileSearchInput"
               />
               <button
@@ -279,8 +276,7 @@ const navItems = [
 ];
 
 const isMenuOpen = ref(false);
-const isMobileFocused = ref(false);
-const isDesktopSearchFocused = ref(false);
+
 const mobileSearchInput = ref(null);
 const desktopSearchInput = ref(null);
 
