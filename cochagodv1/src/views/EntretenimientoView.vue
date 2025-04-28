@@ -200,9 +200,11 @@
                 </span>
               </div>
               <div class="">
-                <button
+                <button to:="`/negocio/${business.id}`"
                   class="cursor-pointer px-2 transition duration-300 hover:scale-110"
                 >
+                <a :href="`https://wa.me/591${business.phone}`" target="_blank" rel="noopener noreferrer">
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -224,8 +226,11 @@
                       stroke-width="1"
                     ></path>
                   </svg>
+                </a>
                 </button>
+            
                 <button class="cursor-pointer px-2 duration-300 hover:scale-110">
+                  <a :href="`${business.link_facebook}`" target="_blank" rel="noopener noreferrer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -241,8 +246,10 @@
                       stroke-width="1"
                     ></path>
                   </svg>
+                </a>
                 </button>
                 <button class="cursor-pointer px-2 duration-300 hover:scale-110">
+                  <a :href="`${business.link_tiktok }`" target="_blank" rel="noopener noreferrer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -258,6 +265,7 @@
                       stroke-width="1"
                     ></path>
                   </svg>
+                </a>
                 </button>
               </div>
               <!-- <div class="flex">
