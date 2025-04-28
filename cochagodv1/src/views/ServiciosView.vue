@@ -161,20 +161,27 @@
           <div class="p-4">
             <div class="flex justify-between items-start">
               <h3 class="text-xl font-bold text-gray-800">{{ business.name }}</h3>
-              <!-- <span
-                :class="[
-                  'text-xs px-2 py-1 rounded',
-                  categoryClasses[business.category] ||
-                    'bg-gray-300 text-gray-800 h-10 w-10',
-                ]"
-              > -->
-              <!-- IMPORTANTE, AGREGAR LAS RUTAS DINAMICAS DE CADA VIEW -->
-              <!-- <router-link>Ver más.. </router-link> -->
-              <!-- </span> -->
+              <a :href="`${business.location}`" target="_blank" rel="noopener noreferrer">
+                <span
+                  class="bg-green-200 text-gray-800 h-10 w-10 rounded-full items-center justify-center flex"
+                >
+                  <MapPinIcon class="h-5 w-5 text-red-500" />
+
+                  <!-- IMPORTANTE, AGREGAR LAS RUTAS DINAMICAS DE CADA VIEW -->
+                  <!-- <router-link>Ver más.. </router-link> -->
+                </span>
+              </a>
             </div>
             <p class="text-gray-600 mt-1 flex items-center">
-              <i class="fas fa-map-marker-alt text-teal-500 mr-1"></i>
-              {{ business.address }}
+              <a
+                :href="`${business.location}`"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-teal-500"
+              >
+                <i class="fas fa-map-marker-alt text-teal-500 mr-1"></i>
+                {{ business.address }}
+              </a>
             </p>
             <p class="text-gray-700 mt-3 text-sm">{{ business.description }}</p>
 
