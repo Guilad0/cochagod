@@ -6,6 +6,7 @@ import Cochamodel from "@/components/ModelCocha.vue";
 // import Profesiones from "./Profesiones.vue";
 import Descubre from "@/components/Descubre.vue";
 import HPage from "@/components/HPage.vue";
+import Msx from "./msx.vue";
 </script>
 
 <template>
@@ -20,5 +21,6 @@ import HPage from "@/components/HPage.vue";
     <div class="w-full h-screen bg-purple-600"><Gastronomia /></div> -->
     <div class="w-full h-screen"><Descubre /></div>
     <!-- <div class="w-full h-screen"><Pierdete /></div> -->
+    <div class="w-full h-screen"><Msx /></div>
   </div>
 </template>

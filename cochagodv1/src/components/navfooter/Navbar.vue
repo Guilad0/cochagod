@@ -3,7 +3,7 @@
     :class="[
       isScrolled ? 'fixed backdrop-blur-xl' : 'absolute',
       'top-0 left-0 z-50 w-full transition-all duration-500',
-      'bg-black/10 md:bg-transparent',
+      'bg-black/25 md:bg-transparent',
     ]"
     class="absolute top-0 left-0 z-50"
   >

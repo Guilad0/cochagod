@@ -23,7 +23,7 @@
           negocios y sabores que hacen de la Llajta! el corazón de Bolivia!
         </p>
 
-        <div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+        <!-- <div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
           <button
             href="#negocios"
             class="px-8 py-3 rounded-full borderfont-medium text-center bg-black/40 hover:bg-teal-400 hover:-translate-y-1 transition duration-300 border border-teal-500"
@@ -36,7 +36,7 @@
           >
             Ver Lugares
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

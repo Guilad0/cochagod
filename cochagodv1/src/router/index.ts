@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import HomeView from '@/views/HomeView.vue';
+import HomeView from '@/views/HomeView.vue';
 // import TurismoView from '@/views/TurismoView.vue';
 // import Negocios from '@/views/Negocios.vue';
 // import Profesiones from '@/views/Profesiones.vue';
@@ -11,7 +11,9 @@ import EntretenimientoView from '@/views/EntretenimientoView.vue';
 import Alojamientos from '@/views/Alojamientos.vue';
 import ServiciosView from '@/views/ServiciosView.vue';
 import TurismoV from '@/views/TurismoV.vue';
-import Fail from '@/views/Fail.vue';
+// import Fail from '@/views/Fail.vue';
+import Cuatro from '@/views/Cuatro.vue';
+import msx from '@/views/msx.vue';
 
 
 const router = createRouter({
@@ -21,7 +23,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: Fail
+      component: HomeView
     }, 
    
     {
@@ -56,6 +58,17 @@ const router = createRouter({
       path: '/turismo',
       name: 'turismo',
       component: TurismoV
+    },
+    {
+      path: '/:pathMatch(.*)*', 
+      name: 'NotFound',
+      component: Cuatro,
+      meta: { title: 'Página no encontrada' }
+    },
+    {
+      path: '/msx',
+      name: 'msx',
+      component: msx
     }
   ],
 })
