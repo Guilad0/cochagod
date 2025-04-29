@@ -6,8 +6,8 @@
           Nuestros Caseritos de Negocios de Comercio.
         </h1>
         <p class="mt-2 text-orange-400">
-          Para jailones, caseritos y todo aquel que quiera llevarse una trocito del
-          corazón de Bolivia.
+          Para jailones, caseritos y todo aquel que quiera llevarse un trocito del corazón
+          de Bolivia.
         </p>
       </div>
     </header>
