@@ -379,6 +379,7 @@ const subtipos = ref([
   { id: "hoteles", name: "Hoteles" },
   { id: "hostales", name: "Hostales " },
   { id: "alojamientos", name: "Alojamientos" },
+  { id: "moteles", name: "Moteles" },
   { id: "other", name: "Otros" },
 ]);
 
