@@ -1,13 +1,13 @@
 <template>
   <div class="w-screen h-screen flex flex-col md:flex-row">
-    <div
+    <!-- <div
       class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm"
     >
       <div
         class="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mb-3"
       ></div>
       <p class="text-orange-700 font-semibold text-lg">Cargando experiencia Cochago...</p>
-    </div>
+    </div> -->
 
     <div class="w-full md:w-1/2 flex items-center justify-center p-8">
       <div class="max-w-md space-y-6 text-center md:text-left">
