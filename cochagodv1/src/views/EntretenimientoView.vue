@@ -12,7 +12,7 @@
       </div>
     </header>
 
-    <section class="bg-white shadow-sm sticky top-15 z-10">
+    <section class="bg-white shadow-sm top-15 z-10">
       <div class="container mx-auto px-4 py-4">
         <div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
           <div
