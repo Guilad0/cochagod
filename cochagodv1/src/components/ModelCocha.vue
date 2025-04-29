@@ -16,18 +16,10 @@
           Explora <span class="text-orange-500">Cochabamba</span> con
           <span class="text-teal-500">CochaGo</span>
         </h1>
-        <p class="text-lg text-gray-600">
+        <p class="text-lg text-gray-600 mb-12">
           Descubre la riqueza cultural, histórica y natural de la ciudad jardín. Déjate
-          cautivar por su magia, donde tradición y modernidad se encuentran en cada
-          rincón.
+          cautivar por la magia Cochala.
         </p>
-        <div class="flex justify-center md:justify-start">
-          <!-- <button
-            class="px-6 py-2 bg-teal-400 text-white rounded-lg shadow hover:bg-teal-500 transition font-semibold"
-          >
-            Empezar ahora
-          </button> -->
-        </div>
       </div>
     </div>
 
