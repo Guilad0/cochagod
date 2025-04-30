@@ -6,7 +6,9 @@
       <div class="absolute inset-0 flex flex-col items-end justify-center text-white p-4">
         <div class="rounded-lg p-6 max-w-2xl flex flex-col items-center">
           <span class="text-white text-4xl font-bold">
-            Bienvenido a CochaGo, Donde la magia de Cochabamba cobra vida.
+            Bienvenido a <span class="text-orange-500">Cocha</span
+            ><span class="text-teal-500">GO</span>, Donde la magia de Cochabamba cobra
+            vida.
           </span>
           <!-- . Te invitamos a
             descubrir negocios locales, experiencias únicas y todo lo que nuestra hermosa

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen h-screen flex flex-col md:flex-row">
+  <div class="h-screen flex flex-col md:flex-row">
     <!-- <div
       class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm"
     >

@@ -3,7 +3,7 @@
     :class="[
       isScrolled ? 'fixed backdrop-blur-xl' : 'absolute',
       'top-0 left-0 z-50 w-full transition-all duration-500',
-      'bg-white/40 md:bg-transparent',
+      'bg-transparent md:bg-transparent',
     ]"
     class="absolute top-0 left-0 z-50"
   >
@@ -68,19 +68,22 @@
           <button
             @click="toggleMenu"
             :class="
-              isScrolled ? 'text-black hover:bg-teal-500' : 'text-black hover:bg-teal-500'
+              isScrolled
+                ? 'text-black hover:bg-teal-400 font-semibold'
+                : 'text-black hover:bg-teal-400 '
             "
-            class="p-2 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 ease-in-out"
+            class="p-2 rounded-xl hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 ease-in-out"
             :aria-expanded="isMenuOpen"
             aria-controls="mobile-menu"
             aria-label="Toggle menu"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-8 w-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              stroke-width="2"
             >
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -105,7 +108,7 @@
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-4"
       >
-        <div v-if="isMenuOpen" class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div v-if="isMenuOpen" class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900/80">
           <NavLink
             class="text-sm"
             v-for="(item, index) in navItems"
