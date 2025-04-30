@@ -1,10 +1,6 @@
+
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue';
-// import TurismoView from '@/views/TurismoView.vue';
-// import Negocios from '@/views/Negocios.vue';
-// import Profesiones from '@/views/Profesiones.vue';
-// import Gastronomia from '@/views/Gastronomia.vue';
-// import Entretenimiento from '@/views/Entretenimiento.vue';
 // import DetalleTuris from '@/views/DetalleTuris.vue';
 import RestaurantesView from '@/views/RestaurantesView.vue';
 import EntretenimientoView from '@/views/EntretenimientoView.vue';
@@ -14,6 +10,7 @@ import TurismoV from '@/views/TurismoV.vue';
 // import Fail from '@/views/Fail.vue';
 import Cuatro from '@/views/Cuatro.vue';
 import msx from '@/views/msx.vue';
+import NotFound from "@/views/NotFound.vue";// <-- Para el 404 johna
 
 
 const router = createRouter({
@@ -69,7 +66,8 @@ const router = createRouter({
       path: '/msx',
       name: 'msx',
       component: msx
-    }
+    },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }, // <-- Para el 404 johna
   ],
 })
 
