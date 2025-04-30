@@ -8,5 +8,8 @@ router.post("/", ctrl.create);
 router.put("/:id", ctrl.update);
 router.delete("/:id", ctrl.remove);
 router.get("/category/:categoryId", ctrl.getByCategory);
+router.patch("/:id/links", businessController.updateLinks);
+router.patch("/:id/location", businessController.updateLocation);
+router.patch("/:id/logo", businessController.updateLogo);
 
 module.exports = router;

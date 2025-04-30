@@ -58,5 +58,27 @@ module.exports = {
 
   async delete(id) {
     await db.query("DELETE FROM business WHERE business_id = ?", [id]);
+  },
+
+  async updateLinks(id, { website, links, link_facebook, link_tiktok }) {
+    await db.query(
+      `UPDATE business SET website = ?, links = ?, link_facebook = ?, link_tiktok = ? WHERE business_id = ?`,
+      [website, links, link_facebook, link_tiktok, id]
+    );
+  },
+  async updateLocation(id, { location }) {
+    await db.query(
+      `UPDATE business SET location = ? WHERE business_id = ?`,
+      [location, id]
+    );
+  },
+  async updateLogo(id, { logo_url }) {
+    await db.query(
+      `UPDATE business SET logo_url = ? WHERE business_id = ?`,
+      [logo_url, id]
+    );
   }
+  
+  
+  
 };

@@ -31,5 +31,26 @@ module.exports = {
   async remove(req, res) {
     await service.delete(req.params.id);
     res.json({ message: "Deleted" });
-  }
+  },
+  updateLinks: async (req, res) => {
+    const { id } = req.params;
+    const { website, link_facebook, link_tiktok, links } = req.body;
+    await businessService.updateLinks(id, { website, link_facebook, link_tiktok, links });
+    res.json({ message: "Enlaces actualizados con éxito" });
+  },
+
+  updateLocation: async (req, res) => {
+    const { id } = req.params;
+    const { location } = req.body;
+    await businessService.updateLocation(id, { location });
+    res.json({ message: "Ubicación actualizada con éxito" });
+  },
+
+  updateLogo: async (req, res) => {
+    const { id } = req.params;
+    const { logo_url } = req.body;
+    await businessService.updateLogo(id, { logo_url });
+    res.json({ message: "Logo actualizado con éxito" });
+  },
+
 };
