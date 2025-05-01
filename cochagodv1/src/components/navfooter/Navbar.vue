@@ -271,11 +271,13 @@ const NavLink = defineComponent({
 });
 
 const navItems = [
-  { text: "Inicio", href: "/" },
+  //{ text: "Inicio", href: "/" },
   { text: "Comercios", href: "/comercios" },
+  { text: "Servicios", href: "/servicios" },
   { text: "Entretenimiento", href: "/entretenimiento" },
   { text: "Alojamiento", href: "/alojamientos" },
   { text: "Turismo", href: "/turismo" },
+  { text: "FAQs", href: "/faqs" },
 ];
 
 const isMenuOpen = ref(false);
