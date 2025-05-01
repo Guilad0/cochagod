@@ -7,6 +7,7 @@ import Cochamodel from "@/components/ModelCocha.vue";
 import Descubre from "@/components/Descubre.vue";
 import HPage from "@/components/HPage.vue";
 import Msx from "./msx.vue";
+import QuienesSomos from "@/views/QuienesSomos.vue";
 </script>
 
 <template>
@@ -21,6 +22,7 @@ import Msx from "./msx.vue";
     <div class="w-full h-screen bg-purple-600"><Gastronomia /></div> -->
     <div class="w-full h-screen"><Descubre /></div>
     <!-- <div class="w-full h-screen"><Pierdete /></div> -->
+    <div class="w-full h-screen"><QuienesSomos /></div>
     <div class="w-full h-screen"><Msx /></div>
   </div>
 </template>

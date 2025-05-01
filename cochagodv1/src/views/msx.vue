@@ -27,7 +27,7 @@
         unirte a nosotros! Juntos podemos crecer, conectar con más personas y hacer
         brillar nuestra querida llajta. Tu negocio tiene un espacio en nuestro corazón y
         en nuestra red."
-        <span class="text-amber-200 font-semibold">contactarnos</span> y obtener más
+        <span class="text-amber-200 font-semibold">Contactanos</span> y obtener más
         información.
       </p>
 
