@@ -34,7 +34,14 @@ const router = createRouter({
       path: '/comercios',
       name: 'comercios',
       component: RestaurantesView
-    },
+    }
+    ,
+    {
+      path: '/servicios',
+      name: 'servicios',
+      component: ServiciosView
+    }
+    ,
     {
       path: '/entretenimiento',
       name: 'entretenimiento',
