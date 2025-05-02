@@ -2,10 +2,10 @@
   <div class="">
     <header class="shadow-md mt-13">
       <div class="container mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-orange-500">
+        <h1 class="text-3xl font-bold text-teal-500">
           Nuestros Caseritos de Negocios de Comercio.
         </h1>
-        <p class="mt-2 text-orange-400">
+        <p class="mt-2 text-teal-400">
           Para jailones, caseritos y todo aquel que quiera llevarse un trocito del corazón
           de Bolivia.
         </p>
@@ -16,7 +16,7 @@
       <div class="container mx-auto px-4 py-4">
         <div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
           <div
-            class="search-box flex-1 bg-white rounded-lg border border-orange-300 flex items-center px-4 py-2 transition-all w-full"
+            class="search-box flex-1 bg-white rounded-lg border border-teal-300 flex items-center px-4 py-2 transition-all w-full"
           >
             <i class="fas fa-search text-gray-400 mr-2"></i>
             <input
@@ -37,8 +37,8 @@
                 :class="[
                   'px-4 py-2 rounded-full text-sm font-medium transition-all',
                   selectedCategory === category.id
-                    ? 'bg-orange-600 text-white'
-                    : 'bg-gray-100 hover:bg-orange-100',
+                    ? 'bg-teal-600 text-white'
+                    : 'bg-gray-100 hover:bg-teal-100',
                 ]"
               >
                 {{ category.name }}
@@ -94,8 +94,8 @@
             :class="[
               'p-2',
               viewMode === 'grid'
-                ? 'text-orange-600'
-                : 'text-gray-400 hover:text-orange-600',
+                ? 'text-teal-600'
+                : 'text-gray-400 hover:text-teal-600',
             ]"
           >
             <i class="fas fa-th-large"></i>
@@ -105,8 +105,8 @@
             :class="[
               'p-2',
               viewMode === 'list'
-                ? 'text-orange-600'
-                : 'text-gray-400 hover:text-orange-600',
+                ? 'text-teal-600'
+                : 'text-gray-400 hover:text-teal-600',
             ]"
           >
             <i class="fas fa-list"></i>
@@ -120,7 +120,7 @@
         <p class="text-gray-500 mt-2">Prueba con otros filtros o términos de búsqueda</p>
         <button
           @click="resetFilters"
-          class="mt-4 px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors"
+          class="mt-4 px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-colors"
         >
           Reiniciar filtros
         </button>
@@ -157,12 +157,12 @@
             </div>
             <div
               v-if="business.promotion"
-              class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded"
+              class="absolute top-2 left-2 bg-teal-500 text-white text-xs font-bold px-2 py-1 rounded"
             >
               Promoción
             </div>
             <div
-              class="absolute bottom-2 right-2 bg-white text-orange-500 text-sm font-bold px-2 py-1 rounded flex items-center"
+              class="absolute bottom-2 right-2 bg-white text-teal-500 text-sm font-bold px-2 py-1 rounded flex items-center"
             >
               <i class="fas fa-star mr-1"></i> {{ business.rating.toFixed(1) }}
             </div>
@@ -186,9 +186,9 @@
                 :href="`${business.location}`"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="hover:text-orange-500"
+                class="hover:text-teal-500"
               >
-                <i class="fas fa-map-marker-alt text-orange-500 mr-1"></i>
+                <i class="fas fa-map-marker-alt text-teal-500 mr-1"></i>
                 {{ business.address }}
               </a>
             </p>
@@ -202,8 +202,8 @@
                   :class="[
                     'mr-2',
                     business.phone
-                      ? 'fas fa-phone-alt text-orange-500'
-                      : 'fas fa-clock text-orange-500',
+                      ? 'fas fa-phone-alt text-teal-500'
+                      : 'fas fa-clock text-teal-500',
                   ]"
                 ></i>
                 <span class="text-sm text-gray-600">
@@ -333,7 +333,7 @@
             :class="[
               'px-3 py-1 rounded border',
               page === currentPage
-                ? 'bg-orange-600 text-white border-orange-600'
+                ? 'bg-teal-600 text-white border-teal-600'
                 : 'border-gray-300 text-gray-700 hover:bg-gray-100',
             ]"
           >

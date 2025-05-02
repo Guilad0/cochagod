@@ -22,19 +22,30 @@
           </li>
           <!-- <li>
             <RouterLink to="/about" class="hover:text-orange-500 transition"
-              >Nosotros</RouterLink
+              >Comercios</RouterLink
             >
           </li>
           <li>
             <RouterLink to="/services" class="hover:text-orange-500 transition"
-              >Servicios</RouterLink
-            >
+              >Servicios</RouterLink>
           </li>
           <li>
             <RouterLink to="/contact" class="hover:text-orange-500 transition"
-              >Contacto</RouterLink
-            >
+              >Entretenimiento</RouterLink>
+          </li>
+           <li>
+            <RouterLink to="/services" class="hover:text-orange-500 transition"
+              >Alojamiento</RouterLink>
+          </li>
+             <li>
+            <RouterLink to="/services" class="hover:text-orange-500 transition"
+              >Turismo</RouterLink>
+          </li>
+             <li>
+            <RouterLink to="/services" class="hover:text-orange-500 transition"
+              >FAQs</RouterLink>
           </li> -->
+           
         </ul>
       </div>
 
