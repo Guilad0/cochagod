@@ -2,7 +2,7 @@
   <div class="">
     <header class="shadow-md mt-13">
       <div class="container mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-teal-600">Negocios Afiliados</h1>
+        <h1 class="text-3xl font-bold text-orange-600">Negocios Afiliados</h1>
         <p class="mt-2">Descubre los mejores establecimientos de Cochabamba</p>
       </div>
     </header>
@@ -32,8 +32,8 @@
                 :class="[
                   'px-4 py-2 rounded-full text-sm font-medium transition-all',
                   selectedCategory === category.id
-                    ? 'bg-teal-600 text-white'
-                    : 'bg-gray-100 hover:bg-teal-100',
+                    ? 'bg-orange-600 text-white'
+                    : 'bg-gray-100 hover:bg-orange-100',
                 ]"
               >
                 {{ category.name }}
@@ -48,7 +48,7 @@
             <select
               v-model="sortBy"
               @change="sortBusinesses"
-              class="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+              class="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
               <option value="featured">Destacados</option>
               <option value="rating">Mejor valorados</option>
@@ -62,7 +62,7 @@
             <select
               v-model="selectedZone"
               @change="filterByZone"
-              class="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+              class="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
               <option value="all">Todas</option>
               <option v-for="zone in zones" :value="zone.id" :key="zone.id">
@@ -88,7 +88,7 @@
             @click="viewMode = 'grid'"
             :class="[
               'p-2',
-              viewMode === 'grid' ? 'text-teal-600' : 'text-gray-400 hover:text-teal-600',
+              viewMode === 'grid' ? 'text-orange-600' : 'text-gray-400 hover:text-orange-600',
             ]"
           >
             <i class="fas fa-th-large"></i>
@@ -97,7 +97,7 @@
             @click="viewMode = 'list'"
             :class="[
               'p-2',
-              viewMode === 'list' ? 'text-teal-600' : 'text-gray-400 hover:text-teal-600',
+              viewMode === 'list' ? 'text-orange-600' : 'text-gray-400 hover:text-orange-600',
             ]"
           >
             <i class="fas fa-list"></i>
@@ -111,7 +111,7 @@
         <p class="text-gray-500 mt-2">Prueba con otros filtros o términos de búsqueda</p>
         <button
           @click="resetFilters"
-          class="mt-4 px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-colors"
+          class="mt-4 px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors"
         >
           Reiniciar filtros
         </button>
@@ -142,7 +142,7 @@
             />
             <div
               v-if="business.isFeatured"
-              class="absolute top-2 left-2 bg-teal-500 text-white text-xs font-bold px-2 py-1 rounded"
+              class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded"
             >
               Destacado
             </div>
@@ -177,9 +177,9 @@
                 :href="`${business.location}`"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="hover:text-teal-500"
+                class="hover:text-orange-500"
               >
-                <i class="fas fa-map-marker-alt text-teal-500 mr-1"></i>
+                <i class="fas fa-map-marker-alt text-orange-500 mr-1"></i>
                 {{ business.address }}
               </a>
             </p>
@@ -193,8 +193,8 @@
                   :class="[
                     'mr-2',
                     business.phone
-                      ? 'fas fa-phone-alt text-teal-500'
-                      : 'fas fa-clock text-teal-500',
+                      ? 'fas fa-phone-alt text-orange-500'
+                      : 'fas fa-clock text-orange-500',
                   ]"
                 ></i>
                 <span class="text-sm text-gray-600">
