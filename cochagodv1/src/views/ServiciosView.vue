@@ -2,8 +2,11 @@
   <div class="">
     <header class="shadow-md mt-13">
       <div class="container mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-orange-600">Negocios Afiliados</h1>
-        <p class="mt-2">Descubre los mejores establecimientos de Cochabamba</p>
+        <h1 class="text-3xl font-bold text-orange-600">
+          Nuestros Caseritos de Negocios de Alojamiento.
+        </h1>
+        <p class="mt-2 text-orange-600">
+          Descubre los mejores establecimientos de Cochabamba</p>
       </div>
     </header>
 
@@ -11,7 +14,7 @@
       <div class="container mx-auto px-4 py-4">
         <div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
           <div
-            class="search-box flex-1 bg-white rounded-lg border border-gray-300 flex items-center px-4 py-2 transition-all w-full"
+            class="search-box flex-1 bg-white rounded-lg border border-orange-300 flex items-center px-4 py-2 transition-all w-full"
           >
             <i class="fas fa-search text-gray-400 mr-2"></i>
             <input
@@ -148,7 +151,7 @@
             </div>
             <div
               v-if="business.promotion"
-              class="absolute top-2 left-2 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded"
+              class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded"
             >
               Promoción
             </div>
@@ -163,7 +166,7 @@
               <h3 class="text-xl font-bold text-gray-800">{{ business.name }}</h3>
               <a :href="`${business.location}`" target="_blank" rel="noopener noreferrer">
                 <span
-                  class="bg-green-200 text-gray-800 h-10 w-10 rounded-full items-center justify-center flex"
+                  class="bg-orange-200 text-gray-800 h-10 w-10 rounded-full items-center justify-center flex"
                 >
                   <MapPinIcon class="h-5 w-5 text-red-500" />
 
@@ -217,13 +220,13 @@
                       width="30"
                     >
                       <path
-                        stroke="#0ad399"
+                        stroke="#FB8C00"
                         stroke-linejoin="round"
                         d="M17 16.5c-1.74 1.74 -5.749 0.257 -7.753 -1.747C7.243 12.749 5.76 8.74 7.5 7c0.504 -0.504 1.198 -0.564 1.622 -0.544 0.245 0.011 0.457 0.155 0.6 0.355l0.952 1.334a1 1 0 0 1 -0.107 1.288l-0.901 0.901c0.166 0.5 0.7 1.7 1.5 2.5s2 1.334 2.5 1.5l0.901 -0.9a1 1 0 0 1 1.288 -0.108l1.334 0.952c0.2 0.143 0.344 0.355 0.355 0.6 0.02 0.424 -0.04 1.118 -0.544 1.622Z"
                         stroke-width="1"
                       ></path>
                       <path
-                        stroke="#0ad399"
+                        stroke="#FB8C00"
                         stroke-linejoin="round"
                         d="M12 22.5c5.799 0 10.5 -4.701 10.5 -10.5S17.799 1.5 12 1.5 1.5 6.201 1.5 12c0 1.912 0.511 3.706 1.405 5.25l-0.88 4.725 4.725 -0.88A10.452 10.452 0 0 0 12 22.5Z"
                         stroke-width="1"
@@ -246,7 +249,7 @@
                       width="30"
                     >
                       <path
-                        stroke="#0ad399"
+                        stroke="#FB8C00"
                         stroke-linejoin="round"
                         d="M22.5 1.5h-21v21H13v-8h-3v-3h3V8a3.5 3.5 0 0 1 3.5 -3.5h3v3H17a1 1 0 0 0 -1 1v3h3l-0.5 3H16v8h6.5v-21Z"
                         stroke-width="1"
@@ -269,7 +272,7 @@
                       width="30"
                     >
                       <path
-                        stroke="#0ad399"
+                        stroke="#FB8C00"
                         stroke-linejoin="round"
                         d="M16 1.5h-3.5V16c0 1.5 -1.5 3 -3 3s-3 -0.5 -3 -3c0 -2 1.899 -3.339 3.5 -3V9.5c-6.12 0 -7 5 -7 6.5s0.977 6.5 6.5 6.5c4.522 0 6.5 -3.5 6.5 -6v-8c1.146 1.018 2.922 1.357 5 1.5V6.5c-3.017 0 -5 -2.654 -5 -5Z"
                         stroke-width="1"
