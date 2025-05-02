@@ -16,6 +16,10 @@
           <li>
             <RouterLink to="/" class="hover:text-orange-500 transition">Inicio</RouterLink>
           </li>
+          <li>
+            <RouterLink to="/privacy-policy" class="hover:text-orange-500 transition">Política de Privacidad
+            </RouterLink>
+          </li>
           <!-- <li>
             <RouterLink to="/about" class="hover:text-orange-500 transition"
               >Comercios</RouterLink
@@ -41,7 +45,9 @@
             <RouterLink to="/services" class="hover:text-orange-500 transition"
               >FAQs</RouterLink>
           </li> -->
-
+          <li>
+            <RouterLink to="/politica" class="hover:text-orange-500 transition">Política de Privacidad</RouterLink>
+          </li>
         </ul>
       </div>
 
@@ -89,12 +95,10 @@
           </a>
           <a href="https://www.instagram.com/cocha.go/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
             class="bg-teal-500 hover:bg-orange-500 text-white w-9 h-9 flex items-center justify-center rounded-full transition">
-
             <i class="fab fa-instagram"></i>
           </a>
           <a href="https://www.tiktok.com/@cochago" target="_blank" rel="noopener noreferrer" aria-label="TikTok"
             class="bg-teal-500 hover:bg-orange-500 text-white w-9 h-9 flex items-center justify-center rounded-full transition">
-
             <i class="fab fa-tiktok"></i>
           </a>
         </div>
@@ -104,9 +108,10 @@
     <div class="border-t border-gray-200 mt-10"></div>
 
     <div class="text-center py-6 text-sm">
-      <p>&copy; {{ currentYear }} CochaGO. Todos los derechos reservados.</p>
+      <p>© {{ currentYear }} CochaGO. Todos los derechos reservados.</p>
       <div class="mt-2 flex justify-center space-x-4 text-teal-500">
-        <RouterLink to="/privacy" class="hover:text-orange-500 transition">Política de Privacidad</RouterLink>
+        <RouterLink to="/politica" class="hover:text-orange-500 transition">Política de Privacidad</RouterLink>
+
         <RouterLink to="/terms" class="hover:text-orange-500 transition">Términos de Servicio</RouterLink>
       </div>
     </div>
