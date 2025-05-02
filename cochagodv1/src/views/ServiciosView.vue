@@ -166,7 +166,7 @@
               <h3 class="text-xl font-bold text-gray-800">{{ business.name }}</h3>
               <a :href="`${business.location}`" target="_blank" rel="noopener noreferrer">
                 <span
-                  class="bg-orange-200 text-gray-800 h-10 w-10 rounded-full items-center justify-center flex"
+                  class="bg-green-200 text-gray-800 h-10 w-10 rounded-full items-center justify-center flex"
                 >
                   <MapPinIcon class="h-5 w-5 text-red-500" />
 
