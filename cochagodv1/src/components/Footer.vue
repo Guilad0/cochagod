@@ -16,38 +16,17 @@
           <li>
             <RouterLink to="/" class="hover:text-orange-500 transition">Inicio</RouterLink>
           </li>
-          <li>
+          <!-- <li>
             <RouterLink to="/privacy-policy" class="hover:text-orange-500 transition">Política de Privacidad
             </RouterLink>
-          </li>
-          <!-- <li>
-            <RouterLink to="/about" class="hover:text-orange-500 transition"
-              >Comercios</RouterLink
-            >
-          </li>
-          <li>
-            <RouterLink to="/services" class="hover:text-orange-500 transition"
-              >Servicios</RouterLink>
-          </li>
-          <li>
-            <RouterLink to="/contact" class="hover:text-orange-500 transition"
-              >Entretenimiento</RouterLink>
-          </li>
-           <li>
-            <RouterLink to="/services" class="hover:text-orange-500 transition"
-              >Alojamiento</RouterLink>
-          </li>
-             <li>
-            <RouterLink to="/services" class="hover:text-orange-500 transition"
-              >Turismo</RouterLink>
-          </li>
-             <li>
-            <RouterLink to="/services" class="hover:text-orange-500 transition"
-              >FAQs</RouterLink>
           </li> -->
-          <li>
+          
+          <!-- <li>
             <RouterLink to="/politica" class="hover:text-orange-500 transition">Política de Privacidad</RouterLink>
           </li>
+          <li>
+            <RouterLink to="/terminos" class="hover:text-orange-500 transition">Términos de Servicio</RouterLink>
+          </li> -->
         </ul>
       </div>
 
@@ -111,8 +90,7 @@
       <p>© {{ currentYear }} CochaGO. Todos los derechos reservados.</p>
       <div class="mt-2 flex justify-center space-x-4 text-teal-500">
         <RouterLink to="/politica" class="hover:text-orange-500 transition">Política de Privacidad</RouterLink>
-
-        <RouterLink to="/terms" class="hover:text-orange-500 transition">Términos de Servicio</RouterLink>
+        <RouterLink to="/terminos" class="hover:text-orange-500 transition">Términos de Servicio</RouterLink>
       </div>
     </div>
   </footer>

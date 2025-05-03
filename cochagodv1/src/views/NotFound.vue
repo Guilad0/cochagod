@@ -1,106 +1,114 @@
 <template>
-    <div
-        class="flex flex-col items-center justify-center h-screen text-center p-6 bg-gradient-to-b from-blue-100 to-white animate-fadeIn">
-        <div class="relative mb-8">
-            <div class="rocket animate-bounce">
-                🚀
-            </div>
+    <div class="error-page">
+        <div class="text">
+            <h1>404</h1>
+            <br><br>
+            <h3>Ups... esta dirección no está registrada en la ciudad.</h3>
+            <br>
+            <router-link to="/" class="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-700 transition">
+                Volver al inicio
+            </router-link>
         </div>
-        <h1 class="text-6xl font-bold text-blue-600 mb-4 animate-slideInDown">404</h1>
-        <h2 class="text-2xl font-semibold mb-2 animate-slideInLeft">¡Oops! Página no encontrada</h2>
-        <p class="text-gray-600 mb-6 animate-slideInRight">Te perdiste en la galaxia de CochaGO. 🌌</p>
-        <router-link to="/" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition">
-            Volver al inicio
-        </router-link>
+        <div class="torch" :style="torchPosition"></div>
     </div>
 </template>
 
 <script setup>
-// No hace falta lógica extra
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const torchPosition = ref({
+    top: '0px',
+    left: '0px'
+});
+
+const handleMouseMove = (event) => {
+    torchPosition.value = {
+        top: `${event.pageY}px`,
+        left: `${event.pageX}px`
+    };
+};
+
+onMounted(() => {
+    window.addEventListener('mousemove', handleMouseMove);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('mousemove', handleMouseMove);
+});
 </script>
 
 <style scoped>
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.error-page {
+    height: 100vh;
+    width: 100vw;
+    background: url("https://latinosanbolivia2022.com/wp-content/uploads/2022/05/Vista_Aerea_del_Cristo_de_la_Concordia.jpg") no-repeat left top;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-@keyframes slideInDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.text h1 {
+    color: #011718;
+    margin-top: -200px;
+    font-size: 15em;
+    text-align: center;
+    text-shadow: -5px 5px 0px rgba(0, 0, 0, 0.7), -10px 10px 0px rgba(0, 0, 0, 0.4), -15px 15px 0px rgba(0, 0, 0, 0.2);
+    font-family: monospace;
+    font-weight: bold;
 }
 
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@keyframes slideInRight {
-    from {
-        transform: translateX(50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.text h2 {
+    color: black;
+    font-size: 5em;
+    text-shadow: -5px 5px 0px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin-top: -150px;
+    font-family: monospace;
+    font-weight: bold;
 }
 
-@keyframes bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
+.text h3 {
+    color: white;
+    margin-left: 30px;
+    font-size: 2em;
+    text-shadow: -5px 5px 0px rgba(0, 0, 0, 0.7);
+    margin-top: -40px;
+    font-family: monospace;
+    font-weight: bold;
 }
 
-/* Clases personalizadas */
-.animate-fadeIn {
-    animation: fadeIn 1s ease-out forwards;
+.torch {
+    margin: -150px 0 0 -150px;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 0 9999em #000000f7;
+    opacity: 1;
+    border-radius: 50%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
 }
 
-.animate-slideInDown {
-    animation: slideInDown 0.8s ease-out forwards;
-}
-
-.animate-slideInLeft {
-    animation: slideInLeft 0.8s ease-out forwards;
-}
-
-.animate-slideInRight {
-    animation: slideInRight 0.8s ease-out forwards;
-}
-
-.animate-bounce {
-    animation: bounce 2s infinite;
-}
-
-/* Extra: estilo para el cohete */
-.rocket {
-    font-size: 4rem;
+.torch::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    box-shadow: inset 0 0 40px 2px #000,
+        0 0 20px 4px rgba(13, 13, 10, 0.2);
+    position: absolute;
 }
 </style>

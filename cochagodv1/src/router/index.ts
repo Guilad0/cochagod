@@ -13,6 +13,7 @@ import msx from '@/views/msx.vue';
 import NotFound from "@/views/NotFound.vue";// <-- Para el 404 johna
 import FaqsView from '@/views/FaqsView.vue';
 import Politica from '@/views/Politica.vue';
+import Terminos from '@/views/Terminos.vue';
 
 
 
@@ -83,6 +84,11 @@ const router = createRouter({
       path: '/politica', 
     name: 'Politica',
     component: () => import('../views/Politica.vue')
+    },
+    {
+      path: '/terminos', 
+    name: 'Terminos',
+    component: () => import('../views/Terminos.vue')
     },
   ],
 })
