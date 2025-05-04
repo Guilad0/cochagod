@@ -8,8 +8,8 @@ import QuienesSomos from "@/views/QuienesSomos.vue";
 
 <template>
   <div class="flex flex-col items-center justify-center">
-    <div class="w-full h-screen"><HPage /></div>
     <div class="w-full h-screen"><Cochamodel /></div>
+    <div class="w-full h-screen"><HPage /></div>
     <div class="w-full h-screen"><Descubre /></div>
     <div class="w-full h-screen"><QuienesSomos /></div>
     <div class="w-full h-screen"><Msx /></div>

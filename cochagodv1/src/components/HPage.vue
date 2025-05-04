@@ -1,35 +1,38 @@
 <template>
-  <div>
-    <div class="">
-      <img src="../assets/cochago.jpg" alt="Cochabamba vista" class="w-full h-screen" />
+  <div class="relative w-full h-screen">
+    <img
+      src="../assets/cochago.jpg"
+      alt="Cochabamba vista"
+      class="w-full h-screen object-cover sm:object-fill"
+    />
+    <div
+      class="absolute z-10 inset-x-4 bottom-6 sm:inset-x-auto sm:right-20 sm:bottom-60 sm:w-1/2 bg-white/10 backdrop-blur-lg p-4 sm:p-6 rounded-lg shadow-lg text-white"
+    >
+      <span class="text-2xl sm:text-4xl font-bold block">
+        Bienvenido a <span class="text-orange-500">Cocha</span
+        ><span class="text-teal-500">GO</span>
+      </span>
+      <span class="text-lg sm:text-2xl font-extrabold block mt-2">
+        <span class="text-blue-300">Paisajes</span>,
+        <span class="text-teal-300">sabores</span> y
+        <span class="text-pink-400">cultura</span> que te
+        <span class="text-red-400">roban el corazón</span>.
+      </span>
 
-      <div class="absolute inset-0 flex flex-col items-end justify-center text-white p-4">
-        <div class="rounded-lg p-6 max-w-2xl flex flex-col items-center">
-          <span class="text-white text-4xl font-bold">
-            Bienvenido a <span class="text-orange-500">Cocha</span
-            ><span class="text-teal-500">GO</span>, Donde la magia de Cochabamba cobra
-            vida.
-          </span>
-          <!-- . Te invitamos a
-            descubrir negocios locales, experiencias únicas y todo lo que nuestra hermosa
-            llajta tiene para ofrecer. Siéntete como en casa y conéctate con lo mejor de
-            nuestra ciudad. ¡Explora, descubre y sé parte de esta gran aventura!" -->
-          <!-- <p class="text-lg md:text-xl mt-4 text-center">
-            Aquí podrás descubrir la verdadera Llajta: Cochabamba no solo se visita, se
-            saborea, se siente y se goza! ¡Sabrosa, Auténtica y Llena de vida! Donde los
-            sabores y el picor son ley.
-          </p> -->
-          <!-- <p class="text-md mt-6 text-center">
-            Donde podrás encontrar desde las trancas más ricas de la Abuela hasta los pique machos que te quitan
-            el aliento. ¡Todo está en Cochabamba Descubre los rincones, negocios y sabores
-            que hacen de Cochabamba el corazón de Bolivia!
-          </p> -->
-        </div>
-      </div>
+      <p class="text-sm sm:text-xl font-semibold text-white leading-relaxed mt-4">
+        Te invitamos a descubrir
+        <span class="text-yellow-300 font-bold">negocios locales</span>,
+        <span class="text-pink-300 font-bold">experiencias únicas</span> y todo lo que
+        nuestra <span class="text-green-300 font-bold">hermosa llajta</span> tiene para
+        ofrecer. Siéntete como en casa y conéctate con
+        <span class="text-blue-300 font-bold">lo mejor de nuestra ciudad</span>.
+        <span class="text-orange-500 font-bold">
+          ¡Explora, descubre y sé parte de esta gran aventura!
+        </span>
+      </p>
     </div>
   </div>
 </template>
-
 <script>
 export default {};
 </script>
