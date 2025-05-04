@@ -11,18 +11,18 @@
       </div>
     </header>
 
-    <section class="bg-white shadow-sm top-15 z-10">
+    <section class="bg-white shadow-sm sticky top-15 z-10">
       <div class="container mx-auto px-4 py-4">
         <div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
           <div
-            class="search-box flex-1 bg-white rounded-lg border border-blue-300 flex items-center px-4 py-2 transition-all w-full"
+            class="search-box flex-1 bg-white rounded-lg border border-blue-300 flex items-center px-4 py-2 transition-all w-88"
           >
             <i class="fas fa-search text-gray-400 mr-2"></i>
             <input
               v-model="searchQuery"
               type="text"
               placeholder="Buscar negocios..."
-              class="w-full focus:outline-none text-gray-700 placeholder-gray-400"
+              class="w-screen focus:outline-none text-gray-700 placeholder-gray-400"
               @input="filterBusinesses"
             />
           </div>

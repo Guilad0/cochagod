@@ -16,14 +16,14 @@
       <div class="container mx-auto px-4 py-4">
         <div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
           <div
-            class="search-box flex-1 bg-white rounded-lg border border-teal-300 flex items-center px-4 py-2 transition-all w-full"
+            class="search-box flex-1 bg-white rounded-lg border border-teal-300 flex items-center px-4 py-2 transition-all w-88"
           >
             <i class="fas fa-search text-gray-400 mr-2"></i>
             <input
               v-model="searchQuery"
               type="text"
               placeholder="Buscar negocios..."
-              class="w-full focus:outline-none text-gray-700 placeholder-gray-400"
+              class="w-screen focus:outline-none text-gray-700 placeholder-gray-400"
               @input="filterBusinesses"
             />
           </div>
@@ -93,9 +93,7 @@
             @click="viewMode = 'grid'"
             :class="[
               'p-2',
-              viewMode === 'grid'
-                ? 'text-teal-600'
-                : 'text-gray-400 hover:text-teal-600',
+              viewMode === 'grid' ? 'text-teal-600' : 'text-gray-400 hover:text-teal-600',
             ]"
           >
             <i class="fas fa-th-large"></i>
@@ -104,9 +102,7 @@
             @click="viewMode = 'list'"
             :class="[
               'p-2',
-              viewMode === 'list'
-                ? 'text-teal-600'
-                : 'text-gray-400 hover:text-teal-600',
+              viewMode === 'list' ? 'text-teal-600' : 'text-gray-400 hover:text-teal-600',
             ]"
           >
             <i class="fas fa-list"></i>
