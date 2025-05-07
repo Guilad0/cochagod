@@ -11,6 +11,7 @@ import TurismoV from '@/views/TurismoV.vue';
 import msx from '@/views/msx.vue';
 import NotFound from "@/views/NotFound.vue";// <-- Para el 404 johna
 import FaqsView from '@/views/FaqsView.vue';
+import TServ from '@/views/TServ.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -84,6 +85,11 @@ const router = createRouter({
       path: '/terminos', 
     name: 'Terminos',
     component: () => import('../views/Terminos.vue')
+    },
+    {
+      path: '/tserv', 
+    name: 'TServ',
+    component: TServ
     },
   ],
 })
