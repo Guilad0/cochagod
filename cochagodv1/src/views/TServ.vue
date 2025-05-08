@@ -28,23 +28,20 @@
 
                 <!-- Main Content -->
                 <div class="w-full bg-[#EAEAEA] text-[#0A192F] md:ml-64" id="main-content">
-                    <!-- Tarjeta horizontal -->
-                    <div class="w-full bg-[#17A589] shadow-md overflow-hidden h-[200px] mb-6">
-                        <div class="flex h-full">
-                            <div class="shrink-0">
-                                <img class="h-full w-full object-cover md:w-[100px]"
-                                    src="https://via.placeholder.com/150" alt="Imagen de ejemplo" />
-                            </div>
-                            <div class="p-4 flex items-center">
-                                <div>
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Nombre
-                                        Completo</div>
-                                    <h2 class="block mt-1 text-lg leading-tight font-medium text-black">Ocupación y/o
-                                        Profesión</h2>
-                                </div>
+
+                    <!-- Tarjeta cuadrada centrada -->
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-white rounded-xl shadow-md p-4 w-full max-w-sm text-center">
+                            <img class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-[#17A589]"
+                                src="https://via.placeholder.com/150" alt="Foto del profesional" />
+                            <div class="mt-4">
+                                <h3 class="text-xl font-bold text-[#0A192F]">Nombre del Profesional</h3>
+                                <p class="text-sm text-gray-600">Ocupación y/o Profesión</p>
+                                <p class="text-sm text-gray-600">Ubicación o especialidad breve</p>
                             </div>
                         </div>
                     </div>
+
 
                     <!-- Secciones de términos -->
                     <div class="px-4">
@@ -53,26 +50,113 @@
                             <button
                                 class="md:hidden w-full text-left font-semibold text-[#17A589] py-2 px-4 flex justify-between items-center border-b border-gray-300 hover:bg-gray-100 transition-colors"
                                 @click="toggleSection(term.id)">
-                                <span>📌 {{ term.title }}</span>
+                                <span>{{ term.icon }} {{ term.title }}</span>
                                 <span class="text-lg">{{ openedSections[term.id] ? '▲' : '▼' }}</span>
                             </button>
 
+
                             <!-- Contenido acordeón en móvil -->
-                            <div v-if="openedSections[term.id]" class="md:hidden prose max-w-none py-4 px-4">
-                                <p v-html="term.content"></p>
+                            <div v-if="openedSections[term.id]" class="md:hidden py-4 px-4">
+                                <!-- Si es la sección de certificaciones -->
+                                <div v-if="term.id === 'certifications'" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div v-for="(cert, index) in term.certifications" :key="index"
+                                        class="bg-white rounded shadow-md overflow-hidden">
+                                        <img :src="cert.src" :alt="cert.alt"
+                                            class="w-full h-48 object-cover cursor-pointer"
+                                            @click="openLightbox(cert)" />
+                                        <div class="p-2 text-sm text-center text-gray-600">{{ cert.alt }}</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Galería -->
+                                <div v-if="term.id === 'gallery'"
+                                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                    <div v-for="(img, index) in term.gallery" :key="index"
+                                        class="bg-white rounded shadow-md overflow-hidden">
+                                        <img :src="img.src" :alt="img.alt"
+                                            class="w-full h-48 object-cover cursor-pointer"
+                                            @click="openLightbox(img)" />
+                                        <div class="p-2 text-sm text-center text-gray-600">{{ img.alt }}</div>
+                                    </div>
+                                </div>
+
+                                <!-- QR para compartir -->
+                                <div v-if="term.id === 'qr'" class="flex justify-center">
+                                    <div class="bg-white rounded shadow-md overflow-hidden w-64">
+                                        <img :src="term.qrImage.src" :alt="term.qrImage.alt"
+                                            class="w-full h-auto object-cover cursor-pointer"
+                                            @click="openLightbox(term.qrImage)" />
+                                        <div class="p-2 text-sm text-center text-gray-600">{{ term.qrImage.alt }}</div>
+                                    </div>
+                                </div>
+
+
+
+                                <!-- En caso contrario, mostrar texto normal -->
+                                <p v-else v-html="term.content" class="prose max-w-none"></p>
                             </div>
+
 
                             <!-- Contenido normal en desktop -->
                             <div class="hidden md:block prose max-w-none">
                                 <h2 class="text-2xl font-semibold mb-4 text-[#17A589] flex items-center">
-                                    <span class="mr-2">📌</span>
+                                    <span class="mr-2">{{ term.icon }}</span>
                                     {{ term.title }}
                                 </h2>
+                                <!-- Si es la sección de certificaciones -->
+                                <div v-if="term.id === 'certifications'"
+                                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                    <div v-for="(cert, index) in term.certifications" :key="index"
+                                        class="bg-white rounded shadow-md overflow-hidden">
+                                        <img :src="cert.src" :alt="cert.alt"
+                                            class="w-full h-48 object-cover cursor-pointer"
+                                            @click="openLightbox(cert)" />
+                                        <div class="p-2 text-sm text-center text-gray-600">{{ cert.alt }}</div>
+                                    </div>
+                                </div>
+
+                                <!-- Galería -->
+                                <div v-if="term.id === 'gallery'"
+                                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                    <div v-for="(img, index) in term.gallery" :key="index"
+                                        class="bg-white rounded shadow-md overflow-hidden">
+                                        <img :src="img.src" :alt="img.alt"
+                                            class="w-full h-48 object-cover cursor-pointer"
+                                            @click="openLightbox(img)" />
+                                        <div class="p-2 text-sm text-center text-gray-600">{{ img.alt }}</div>
+                                    </div>
+                                </div>
+
+                                <!-- QR para compartir -->
+                                <div v-if="term.id === 'qr'" class="flex justify-center">
+                                    <div class="bg-white rounded shadow-md overflow-hidden w-64">
+                                        <img :src="term.qrImage.src" :alt="term.qrImage.alt"
+                                            class="w-full h-auto object-cover cursor-pointer"
+                                            @click="openLightbox(term.qrImage)" />
+                                        <div class="p-2 text-sm text-center text-gray-600">{{ term.qrImage.alt }}</div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- En caso contrario, mostrar texto normal -->
                                 <p v-html="term.content"></p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <!-- Lightbox -->
+        <div v-if="showLightbox" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+            <div class="relative max-w-3xl w-full">
+                <img :src="lightboxImage.src" :alt="lightboxImage.alt"
+                    class="w-full max-h-[90vh] object-contain rounded" />
+                <button @click="closeLightbox"
+                    class="absolute top-2 right-2 text-white bg-red-600 hover:bg-red-700 rounded-full px-3 py-1 text-sm">
+                    ✕ Cerrar
+                </button>
             </div>
         </div>
     </div>
@@ -89,55 +173,101 @@ export default {
                 'about-me': false,
                 contact: false,
             },
+            lightboxImage: null,
+            showLightbox: false,
             terms: [
                 {
                     id: 'acceptance',
-                    title: 'Descripción del Profesional',
+                    title: '🏛️ Descripción del Profesional',
                     content:
-                        'Una card con su foto <br>Médico Cirujano Plástico en Tarija, Bolivia, especialista en belleza corporal y facial. Atención con profesionalismo y seguridad.',
+                        'Médico Cirujano Plástico en Tarija, Bolivia, especialista en belleza corporal y facial. Atención con profesionalismo y seguridad.',
                 },
                 {
                     id: 'description',
-                    title: 'Productos / Servicios',
+                    title: '⚙️ Productos / Servicios',
                     content:
                         'Somos especialistas en belleza Corporal y Facial, realizamos siempre nuestra labor siguiendo los estándares de profesionalismo y seguridad más altos y otorgamos el mejor servicio para que nuestros pacientes se sientan cómodos y satisfechos. El Dr. Javier Ruiz Barea es Director de la Clínica Sao Paulo.',
                 },
                 {
                     id: 'about-me',
-                    title: 'Acerca de mi',
+                    title: '📚 Acerca de mi',
                     content:
                         'Formado en el Hospital Estadual Ipiranga São Paulo Brasil Miembro Titular de la Sociedad Boliviana de Cirugía Plástica Presidente de la Sociedad Boliviana de Cirugía Plástica gestión 2018-2020. Miembro corresponsal de la Sociedad Brasilera de Cirugía Plástica. Miembro de ISAPS (International Society of Aesthetic Plastic Surgery) Miembro de la ASPS (American Society of Plastic Surgeons)',
                 },
                 {
                     id: 'contact',
-                    title: 'Contacto',
-                    content: 'Celular: (591-4) 6633056 (591) 71863980; redes sociales; ubicación de oficina o consultorio',
+                    title: '🗺️ Contacto',
+                    content: `📞 <a href="https://wa.me/59171863980" target="_blank">+591 71863980</a><br>
+                        <i class="fab fa-whatsapp"></i> <a href="https://wa.me/59146633056" target="_blank">+591 4 6633056</a><br><br>
+                        <i class="fas fa-envelope"></i> <a href="mailto:correo@ejemplo.com" target="_blank">correo@ejemplo.com</a><br>    
+                        <i class="fab fa-linkedin-in"></i> <a href="https://linkedin.com/in/usuario" target="_blank">LinkedIn</a><br>    
+                        <i class="fab fa-facebook-f"></i> <a href="https://facebook.com/usuario" target="_blank">Facebook</a><br>    
+                        <i class="fab fa-instagram"></i> <a href="https://instagram.com/usuario" target="_blank">Instagram</a><br>    
+                        <i class="fab fa-tiktok"></i> <a href="https://tiktok.com/@usuario" target="_blank">TikTok</a><br><br>   
+                        <i class="fas fa-map-marker-alt"></i> <a  href="https://www.google.com/maps/search/?api=1&query=Av.+América+123+Cochabamba"  target="_blank">   Av. América 123, Cochabamba</a>`
                 },
+
                 {
                     id: 'certifications',
-                    title: 'Certificaciones',
-                    content: 'Imagenes en cards'
+                    title: '🏆 Certificaciones',
+                    content: 'Imagenes en cards',
+                    certifications: [
+                        {
+                            src: 'https://via.placeholder.com/300x200',
+                            alt: 'Certificado de ISAPS'
+                        },
+                        {
+                            src: 'https://via.placeholder.com/300x200',
+                            alt: 'Miembro Sociedad Boliviana'
+                        },
+                        {
+                            src: 'https://via.placeholder.com/300x200',
+                            alt: 'Certificado ASPS'
+                        }
+                    ]
                 },
                 {
                     id: 'gallery',
-                    title: 'Galeria',
-                    content: 'Imagenes en cards'
+                    title: '🖼️ Galería',
+                    content: 'Imágenes en cards',
+                    gallery: [
+                        {
+                            src: 'https://via.placeholder.com/300x200',
+                            alt: 'Antes y después 1'
+                        },
+                        {
+                            src: 'https://via.placeholder.com/300x200',
+                            alt: 'Antes y después 2'
+                        },
+                        {
+                            src: 'https://via.placeholder.com/300x200',
+                            alt: 'Procedimiento 3'
+                        }
+                    ]
                 },
+
                 {
                     id: 'working hours',
-                    title: 'Horarios de Atención',
+                    title: '⌚ Horarios de Atención',
                     content: 'Lunes a viernes: 9:00 am - 6:00 pm<br>Sabados: 9:00 am - 1:00 pm'
                 },
                 {
                     id: 'payments',
-                    title: 'Formas de pago',
-                    content: 'Efectivo. Bolivianos <br>Dólares y pesos Argentinos. <br>Tarjetas de crédito y debito.'   
+                    title: '💰 Formas de pago',
+                    content: 'Efectivo. Bolivianos <br>Dólares y pesos Argentinos. <br>Tarjetas de crédito y debito.'
                 },
                 {
-                    id: 'QR',
-                    title: 'QR para compartir Tarjeta',
-                    content: 'Una card con su QR para compartir'
-                },
+                    id: 'qr',
+                    title: '📱 QR para compartir Tarjeta',
+                    content: 'Escanea el código QR para compartir esta tarjeta digital.',
+                    qrImage: {
+                        src: 'https://via.placeholder.com/300x300',
+                        alt: 'Código QR para compartir'
+                    }
+                }
+
+
+
             ],
         };
     },
@@ -149,6 +279,14 @@ export default {
         window.removeEventListener('scroll', this.handleScroll);
     },
     methods: {
+        openLightbox(image) {
+            this.lightboxImage = image;
+            this.showLightbox = true;
+        },
+        closeLightbox() {
+            this.showLightbox = false;
+            this.lightboxImage = null;
+        },
         handleScroll() {
             const sections = document.querySelectorAll('[id]');
             let current = '';
