@@ -11,10 +11,20 @@ const pool = mysql.createPool({
   database: process.env.DB_DATABASE,
   port: process.env.DB_PORT || 3306,
   connectTimeout: 10000,
-  
   ssl: false,
+  connectTimeout: 10000,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
-
+setInterval(async () => {
+  try {
+    await pool.query('SELECT 1');
+    console.log('Ping a la base de datos exitoso (keep-alive).');
+  } catch (err) {
+    console.error('Error en keep-alive ping:', err);
+  }
+}, 5 * 60 * 1000);
 
 
 module.exports = pool;
