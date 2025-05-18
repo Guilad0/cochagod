@@ -23,7 +23,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://cochago.com.bo'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+app.options('*', cors());
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
