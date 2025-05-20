@@ -31,7 +31,7 @@
 
                     <!-- Tarjeta cuadrada centrada -->
                     <div class="flex justify-center mb-6">
-                        <div class="bg-white rounded-xl shadow-md p-4 w-full max-w-sm text-center">
+                        <div class="bg-blue-100 rounded-xl shadow-md p-4 w-full max-w-sm text-center">
                             <img class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-[#17A589]"
                                 src="https://via.placeholder.com/150" alt="Foto del profesional" />
                             <div class="mt-4">
@@ -67,7 +67,7 @@
                                         <div class="p-2 text-sm text-center text-gray-600">{{ cert.alt }}</div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Galería -->
                                 <div v-if="term.id === 'gallery'"
                                     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
