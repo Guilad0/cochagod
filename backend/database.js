@@ -24,7 +24,7 @@ setInterval(async () => {
   } catch (err) {
     console.error('Error en keep-alive ping:', err);
   }
-}, 5 * 60 * 1000);
+},60 * 60 * 1000);
 
 
 module.exports = pool;

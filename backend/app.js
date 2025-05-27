@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var businessRouter = require('./routes/business');
 var imageRouter = require('./routes/image');
 var categoryRouter = require('./routes/category');
+var imgRouter = require('./routes/img');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use('/users', usersRouter);
 app.use('/business', businessRouter);
 app.use('/image', imageRouter);
 app.use('/category', categoryRouter);
+app.use('/img', imgRouter);
 
 
 
