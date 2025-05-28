@@ -37,23 +37,25 @@ module.exports = {
       category_id,
       subtipo,
       link_facebook,
-      link_tiktok
+      link_tiktok,
+      servicios
     } = data;
   
     const [result] = await db.query(
-      "INSERT INTO business (name, description, address, phone, email, website, category, logo_url, is_active, location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-      [name, description, address, phone, email, website, category, logo_url, is_active, location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok]
+      "INSERT INTO business (name, description, address, phone, email, website, category, logo_url, is_active, location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok, servicios) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      [name, description, address, phone, email, website, category, logo_url, is_active, location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok, servicios]
     );
   
     return { id: result.insertId, ...data };
   },  
 
   async update(id, data) {
-    const { name, description, address, phone, email, website, category, logo_url,location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok } = data;
+    const { name, description, address, phone, email, website, category, logo_url,location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok, servicios } = data;
     await db.query(
-      "UPDATE business SET name = ?, description = ?, address = ?, phone = ?, email = ?, website = ?, category = ?, logo_url = ?, location = ?, links = ?, zone = ? , rating = ?, category_id = ?, subtipo = ?, link_facebook = ?, link_tiktok = ? WHERE business_id = ?",
-      [name, description, address, phone, email, website, category, logo_url, location, links, zone, id , rating, category_id]
+      "UPDATE business SET name = ?, description = ?, address = ?, phone = ?, email = ?, website = ?, category = ?, logo_url = ?, location = ?, links = ?, zone = ? , rating = ?, category_id = ?, subtipo = ?, link_facebook = ?, link_tiktok = ?, servicios = ? WHERE business_id = ?",
+      [name, description, address, phone, email, website, category, logo_url, location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok, servicios, id]
     );
+    return { id, ...data };
   },
 
   async delete(id) {

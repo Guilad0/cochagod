@@ -1,4 +1,5 @@
 const service = require("../services/businessService");
+const imgService = require("../services/imgService");
 
 module.exports = {
   async getAll(req, res) {
@@ -52,5 +53,20 @@ module.exports = {
     await service.updateLogo(id, { logo_url });
     res.json({ message: "Logo actualizado con éxito" });
   },
+
+  async getBusinessImages(req, res) {
+    try {
+      const businessId = req.params.id;
+      const business = await service.getById(businessId);
+      if (!business) return res.status(404).json({ message: 'Negocio no encontrado' });
+
+      const images = await imgService.getByBusiness(businessId);
+
+      res.json({ ...business, images });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Error al obtener datos del negocio' });
+    }
+  }
 
 };
