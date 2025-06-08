@@ -1,343 +1,340 @@
-```vue
 <template>
-    <div id="page-top">
-        <div class="pt-20">
-            <div class="flex">
-                <!-- Sidebar Navegación - para PC -->
-                <div class="hidden md:block w-64 bg-[#0A192F] text-[#EAEAEA] fixed h-screen p-4 overflow-y-auto">
-                    <h2 class="text-xl font-bold mb-6 text-[#17A589]">Navegación</h2>
-                    <nav>
-                        <ul class="space-y-3">
-                            <li>
-                                <a href="#page-top" class="block px-3 py-2 rounded hover:bg-[#17A589] transition-colors"
-                                    :class="{ 'bg-[#17A589]': activeTerm === 'page-top' }"
-                                    @click="activeTerm = 'page-top'">
-                                    🏠 Inicio
-                                </a>
-                            </li>
-                            <li v-for="(term, index) in terms" :key="index">
-                                <a :href="'#' + term.id"
-                                    class="block px-3 py-2 rounded hover:bg-[#17A589] transition-colors"
-                                    :class="{ 'bg-[#17A589]': activeTerm === term.id }" @click="activeTerm = term.id">
-                                    {{ term.title }}
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+  <div id="page-top">
+    <div class="flex">
+      <div
+        class="hidden md:block w-64 bg-orange-600/10 text-gray-800 fixed h-screen overflow-y-auto shadow-md"
+      >
+        <nav>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="#descripcion"
+                class="block px-3 py-2 rounded hover:bg-orange-400 hover:text-white transition-colors"
+                :class="{ 'bg-orange-400 text-white': activeTerm === 'descripcion' }"
+                @click="activeTerm = 'descripcion'"
+              >
+                Descripción del Profesional
+              </a>
+            </li>
+            <li>
+              <a
+                href="#servicios"
+                class="block px-3 py-2 rounded hover:bg-orange-400 hover:text-white transition-colors"
+                :class="{ 'bg-orange-400 text-white': activeTerm === 'servicios' }"
+                @click="activeTerm = 'servicios'"
+              >
+                Productos y Servicios
+              </a>
+            </li>
+            <li>
+              <a
+                href="#galeria"
+                class="block px-3 py-2 rounded hover:bg-orange-400 hover:text-white transition-colors"
+                :class="{ 'bg-orange-400 text-white': activeTerm === 'galeria' }"
+                @click="activeTerm = 'galeria'"
+              >
+                Galería
+              </a>
+            </li>
+            <li>
+              <a
+                href="#certificaciones"
+                class="block px-3 py-2 rounded hover:bg-orange-400 hover:text-white transition-colors"
+                :class="{ 'bg-orange-400 text-white': activeTerm === 'certificaciones' }"
+                @click="activeTerm = 'certificaciones'"
+              >
+                Certificaciones
+              </a>
+            </li>
 
-                <!-- Main Content -->
-                <div class="w-full bg-[#EAEAEA] text-[#0A192F] md:ml-64" id="main-content">
+            <li>
+              <a
+                href="#horarios"
+                class="block px-3 py-2 rounded hover:bg-orange-400 hover:text-white transition-colors"
+                :class="{ 'bg-orange-400 text-white': activeTerm === 'horarios' }"
+                @click="activeTerm = 'horarios'"
+              >
+                Horarios de Atención
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contacto"
+                class="block px-3 py-2 rounded hover:bg-orange-400 hover:text-white transition-colors"
+                :class="{ 'bg-orange-400 text-white': activeTerm === 'contacto' }"
+                @click="activeTerm = 'contacto'"
+              >
+                Contacto
+              </a>
+            </li>
+            <li>
+              <a
+                href="#pagos"
+                class="block px-3 py-2 rounded hover:bg-orange-400 hover:text-white transition-colors"
+                :class="{ 'bg-orange-400 text-white': activeTerm === 'pagos' }"
+                @click="activeTerm = 'pagos'"
+              >
+                Formas de Pago
+              </a>
+            </li>
+            <li>
+              <a
+                href="#qr"
+                class="block px-3 py-2 rounded hover:bg-orange-400 hover:text-white transition-colors"
+                :class="{ 'bg-orange-400 text-white': activeTerm === 'qr' }"
+                @click="activeTerm = 'qr'"
+              >
+                Compartir
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-                    <!-- Tarjeta cuadrada centrada -->
-                    <div class="flex justify-center mb-6">
-                        <div class="bg-blue-100 rounded-xl shadow-md p-4 w-full max-w-sm text-center">
-                            <img class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-[#17A589]"
-                                src="https://via.placeholder.com/150" alt="Foto del profesional" />
-                            <div class="mt-4">
-                                <h3 class="text-xl font-bold text-[#0A192F]">Nombre del Profesional</h3>
-                                <p class="text-sm text-gray-600">Ocupación y/o Profesión</p>
-                                <p class="text-sm text-gray-600">Ubicación o especialidad breve</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Secciones de términos -->
-                    <div class="px-4">
-                        <div v-for="(term, index) in terms" :key="index" :id="term.id" class="mb-12 scroll-mt-24">
-                            <!-- Encabezado con botón acordeón (modo móvil) -->
-                            <button
-                                class="md:hidden w-full text-left font-semibold text-[#17A589] py-2 px-4 flex justify-between items-center border-b border-gray-300 hover:bg-gray-100 transition-colors"
-                                @click="toggleSection(term.id)">
-                                <span>{{ term.icon }} {{ term.title }}</span>
-                                <span class="text-lg">{{ openedSections[term.id] ? '▲' : '▼' }}</span>
-                            </button>
-
-
-                            <!-- Contenido acordeón en móvil -->
-                            <div v-if="openedSections[term.id]" class="md:hidden py-4 px-4">
-                                <!-- Si es la sección de certificaciones -->
-                                <div v-if="term.id === 'certifications'" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div v-for="(cert, index) in term.certifications" :key="index"
-                                        class="bg-white rounded shadow-md overflow-hidden">
-                                        <img :src="cert.src" :alt="cert.alt"
-                                            class="w-full h-48 object-cover cursor-pointer"
-                                            @click="openLightbox(cert)" />
-                                        <div class="p-2 text-sm text-center text-gray-600">{{ cert.alt }}</div>
-                                    </div>
-                                </div>
-
-                                <!-- Galería -->
-                                <div v-if="term.id === 'gallery'"
-                                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                    <div v-for="(img, index) in term.gallery" :key="index"
-                                        class="bg-white rounded shadow-md overflow-hidden">
-                                        <img :src="img.src" :alt="img.alt"
-                                            class="w-full h-48 object-cover cursor-pointer"
-                                            @click="openLightbox(img)" />
-                                        <div class="p-2 text-sm text-center text-gray-600">{{ img.alt }}</div>
-                                    </div>
-                                </div>
-
-                                <!-- QR para compartir -->
-                                <div v-if="term.id === 'qr'" class="flex justify-center">
-                                    <div class="bg-white rounded shadow-md overflow-hidden w-64">
-                                        <img :src="term.qrImage.src" :alt="term.qrImage.alt"
-                                            class="w-full h-auto object-cover cursor-pointer"
-                                            @click="openLightbox(term.qrImage)" />
-                                        <div class="p-2 text-sm text-center text-gray-600">{{ term.qrImage.alt }}</div>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- En caso contrario, mostrar texto normal -->
-                                <p v-else v-html="term.content" class="prose max-w-none"></p>
-                            </div>
-
-
-                            <!-- Contenido normal en desktop -->
-                            <div class="hidden md:block prose max-w-none">
-                                <h2 class="text-2xl font-semibold mb-4 text-[#17A589] flex items-center">
-                                    <span class="mr-2">{{ term.icon }}</span>
-                                    {{ term.title }}
-                                </h2>
-                                <!-- Si es la sección de certificaciones -->
-                                <div v-if="term.id === 'certifications'"
-                                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                    <div v-for="(cert, index) in term.certifications" :key="index"
-                                        class="bg-white rounded shadow-md overflow-hidden">
-                                        <img :src="cert.src" :alt="cert.alt"
-                                            class="w-full h-48 object-cover cursor-pointer"
-                                            @click="openLightbox(cert)" />
-                                        <div class="p-2 text-sm text-center text-gray-600">{{ cert.alt }}</div>
-                                    </div>
-                                </div>
-
-                                <!-- Galería -->
-                                <div v-if="term.id === 'gallery'"
-                                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                    <div v-for="(img, index) in term.gallery" :key="index"
-                                        class="bg-white rounded shadow-md overflow-hidden">
-                                        <img :src="img.src" :alt="img.alt"
-                                            class="w-full h-48 object-cover cursor-pointer"
-                                            @click="openLightbox(img)" />
-                                        <div class="p-2 text-sm text-center text-gray-600">{{ img.alt }}</div>
-                                    </div>
-                                </div>
-
-                                <!-- QR para compartir -->
-                                <div v-if="term.id === 'qr'" class="flex justify-center">
-                                    <div class="bg-white rounded shadow-md overflow-hidden w-64">
-                                        <img :src="term.qrImage.src" :alt="term.qrImage.alt"
-                                            class="w-full h-auto object-cover cursor-pointer"
-                                            @click="openLightbox(term.qrImage)" />
-                                        <div class="p-2 text-sm text-center text-gray-600">{{ term.qrImage.alt }}</div>
-                                    </div>
-                                </div>
-
-
-
-
-                                <!-- En caso contrario, mostrar texto normal -->
-                                <p v-html="term.content"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="w-full bg-white text-gray-800 md:ml-64 px-4">
+        <div class="relative mb-10">
+          <img
+            class="w-full h-[220px] rounded shadow bg-orange-400 object-cover"
+            alt="Imagen grande"
+            :src="coverImages[1]?.url_image || '/img/cochago.png'"
+          />
+          <div
+            class="absolute -bottom-10 left-4 bg-orange-400 border-2 border-white p-3 shadow-lg w-[160px] h-[160px] flex items-center justify-center rounded-full"
+          >
+            <img
+              class="object-contain h-30 w-30 rounded-full"
+              :src="
+                servicio.logo_url ||
+                'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+              "
+              alt="Logo pequeño"
+            />
+          </div>
         </div>
-        <!-- Lightbox -->
-        <div v-if="showLightbox" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-            <div class="relative max-w-3xl w-full">
-                <img :src="lightboxImage.src" :alt="lightboxImage.alt"
-                    class="w-full max-h-[90vh] object-contain rounded" />
-                <button @click="closeLightbox"
-                    class="absolute top-2 right-2 text-white bg-red-600 hover:bg-red-700 rounded-full px-3 py-1 text-sm">
-                    ✕ Cerrar
-                </button>
+        <section id="descripcion" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-semibold mb-4 text-orange-400">
+            Descripción del Profesional
+          </h2>
+          {{ servicio.description }}
+        </section>
+
+        <section id="servicios" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-semibold mb-4 text-orange-400">
+            Productos y Servicios
+          </h2>
+          {{ servicio.servicios }}
+        </section>
+
+        <section id="galeria" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-semibold mb-4 text-orange-400">Galería</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div
+              v-for="(img, index) in galleryImages"
+              :key="index"
+              class="bg-white rounded shadow-md overflow-hidden"
+            >
+              <img
+                :src="
+                  img.url_image ||
+                  'https://via.placeholder.com/300x200.png?text=Sin+imagen'
+                "
+                :alt="img.titulo || `Imagen ${index + 1}`"
+                class="w-full h-48 object-cover cursor-pointer"
+                @click="openLightbox(img)"
+              />
+              <div class="p-2 text-sm text-center text-gray-600">
+                {{ img.titulo || `Imagen ${index + 1}` }}
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
+        <section id="certificaciones" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-semibold mb-4 text-orange-400">Certificaciones</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div
+              v-for="(img, index) in certificadoImage"
+              :key="index"
+              class="bg-white rounded shadow-md overflow-hidden"
+            >
+              <img
+                :src="
+                  img.url_image ||
+                  'https://via.placeholder.com/300x200.png?text=Sin+imagen'
+                "
+                :alt="img.titulo || `Imagen ${index + 1}`"
+                class="w-full h-48 object-cover cursor-pointer"
+                @click="openLightbox(img)"
+              />
+              <div class="p-2 text-sm text-center text-gray-600">
+                {{ img.titulo || `Imagen ${index + 1}` }}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="horarios" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-semibold mb-4 text-orange-400">
+            Horarios de Atención
+          </h2>
+          Lunes a viernes: 9:00 am - 6:00 pm<br />
+          Sábados: 9:00 am - 1:00 pm
+        </section>
+        <section id="contacto" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-semibold mb-4 text-orange-400 flex items-center">
+            Contactos
+          </h2>
+          <i class="fas fa-phone-alt text-green-400 pr-2"></i>
+          <a
+            :href="`tel:${servicio.phone}`"
+            target="_blank"
+            class="text-gray-600 hover:text-orange-500 transition-colors"
+          >
+            {{ servicio?.phone || "Sin teléfono disponible" }}
+          </a>
+
+          <br />
+
+          <i class="fas fa-envelope text-red-500 mr-2"></i>
+          <a
+            :href="`mailto:${servicio.email}`"
+            target="_blank"
+            class="text-gray-600 hover:text-orange-600"
+          >
+            {{ servicio.email }}
+          </a>
+          <br />
+
+          <i class="fab fa-facebook-f text-blue-600 mr-2"></i>
+          <a
+            :href="servicio.link_facebook"
+            target="_blank"
+            class="text-gray-600 hover:text-orange-600"
+          >
+            Facebook
+          </a>
+          <br />
+
+          <i class="fab fa-instagram text-rose-400 mr-2"></i>
+          <a
+            :href="servicio.links"
+            target="_blank"
+            class="text-gray-600 hover:text-orange-600"
+          >
+            Instagram
+          </a>
+          <br />
+
+          <i class="fab fa-tiktok mr-2"></i>
+          <a
+            :href="servicio.link_tiktok"
+            target="_blank"
+            class="text-gray-600 hover:text-orange-600"
+          >
+            TikTok
+          </a>
+          <br />
+
+          <i class="fas fa-map-marker-alt text-red-500 mr-3"></i>
+          <a
+            :href="servicio.location"
+            target="_blank"
+            class="text-gray-600 hover:text-orange-600"
+          >
+            {{ servicio.address }}
+          </a>
+        </section>
+
+        <section id="pagos" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-semibold mb-4 text-orange-400">Formas de Pago</h2>
+          <p>Efectivo, tarjeta de crédito, transferencia bancaria.</p>
+        </section>
+
+        <section id="qr" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-semibold mb-4 text-orange-400">Compartir</h2>
+          <div class="flex justify-center">
+            <div class="bg-white rounded shadow-md overflow-hidden w-64 cursor-pointer">
+              <img
+                :src="qrImage[0]?.url_image || '/img/cochago.png'"
+                @click="openLightbox(qrImage[0]?.url_image || '/img/cochago.png')"
+              />
+              <div class="p-2 text-sm text-center text-gray-600">
+                Escanea este código QR para compartir.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
+    <div
+      v-if="lightboxVisible"
+      class="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50 p-4"
+      @click="closeLightbox"
+    >
+      <span
+        class="absolute top-4 right-6 text-white text-3xl font-bold cursor-pointer"
+        @click.stop="closeLightbox"
+      >
+        &times;
+      </span>
+      <img
+        :src="selectedImage.url_image || selectedImage"
+        alt="Imagen ampliada"
+        class="max-w-full max-h-[80vh] rounded shadow-lg mb-4"
+        @click.stop
+      />
+      <div class="text-white text-center max-w-lg px-4">
+        <h3 class="text-xl font-semibold mb-2">{{ selectedImage.titulo || "Imagen" }}</h3>
+        <p>{{ selectedImage.descripcion || "Sin descripción disponible" }}</p>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            activeTerm: 'page-top',
-            openedSections: {
-                acceptance: false,
-                description: false,
-                'about-me': false,
-                contact: false,
-            },
-            lightboxImage: null,
-            showLightbox: false,
-            terms: [
-                {
-                    id: 'acceptance',
-                    title: '🏛️ Descripción del Profesional',
-                    content:
-                        'Médico Cirujano Plástico en Tarija, Bolivia, especialista en belleza corporal y facial. Atención con profesionalismo y seguridad.',
-                },
-                {
-                    id: 'description',
-                    title: '⚙️ Productos / Servicios',
-                    content:
-                        'Somos especialistas en belleza Corporal y Facial, realizamos siempre nuestra labor siguiendo los estándares de profesionalismo y seguridad más altos y otorgamos el mejor servicio para que nuestros pacientes se sientan cómodos y satisfechos. El Dr. Javier Ruiz Barea es Director de la Clínica Sao Paulo.',
-                },
-                {
-                    id: 'about-me',
-                    title: '📚 Acerca de mi',
-                    content:
-                        'Formado en el Hospital Estadual Ipiranga São Paulo Brasil Miembro Titular de la Sociedad Boliviana de Cirugía Plástica Presidente de la Sociedad Boliviana de Cirugía Plástica gestión 2018-2020. Miembro corresponsal de la Sociedad Brasilera de Cirugía Plástica. Miembro de ISAPS (International Society of Aesthetic Plastic Surgery) Miembro de la ASPS (American Society of Plastic Surgeons)',
-                },
-                {
-                    id: 'contact',
-                    title: '🗺️ Contacto',
-                    content: `📞 <a href="https://wa.me/59171863980" target="_blank">+591 71863980</a><br>
-                        <i class="fab fa-whatsapp"></i> <a href="https://wa.me/59146633056" target="_blank">+591 4 6633056</a><br><br>
-                        <i class="fas fa-envelope"></i> <a href="mailto:correo@ejemplo.com" target="_blank">correo@ejemplo.com</a><br>    
-                        <i class="fab fa-linkedin-in"></i> <a href="https://linkedin.com/in/usuario" target="_blank">LinkedIn</a><br>    
-                        <i class="fab fa-facebook-f"></i> <a href="https://facebook.com/usuario" target="_blank">Facebook</a><br>    
-                        <i class="fab fa-instagram"></i> <a href="https://instagram.com/usuario" target="_blank">Instagram</a><br>    
-                        <i class="fab fa-tiktok"></i> <a href="https://tiktok.com/@usuario" target="_blank">TikTok</a><br><br>   
-                        <i class="fas fa-map-marker-alt"></i> <a  href="https://www.google.com/maps/search/?api=1&query=Av.+América+123+Cochabamba"  target="_blank">   Av. América 123, Cochabamba</a>`
-                },
+<script setup>
+import { ref, onMounted, computed } from "vue";
+import { useRoute } from "vue-router";
+import axios from "axios";
 
-                {
-                    id: 'certifications',
-                    title: '🏆 Certificaciones',
-                    content: 'Imagenes en cards',
-                    certifications: [
-                        {
-                            src: 'https://via.placeholder.com/300x200',
-                            alt: 'Certificado de ISAPS'
-                        },
-                        {
-                            src: 'https://via.placeholder.com/300x200',
-                            alt: 'Miembro Sociedad Boliviana'
-                        },
-                        {
-                            src: 'https://via.placeholder.com/300x200',
-                            alt: 'Certificado ASPS'
-                        }
-                    ]
-                },
-                {
-                    id: 'gallery',
-                    title: '🖼️ Galería',
-                    content: 'Imágenes en cards',
-                    gallery: [
-                        {
-                            src: 'https://via.placeholder.com/300x200',
-                            alt: 'Antes y después 1'
-                        },
-                        {
-                            src: 'https://via.placeholder.com/300x200',
-                            alt: 'Antes y después 2'
-                        },
-                        {
-                            src: 'https://via.placeholder.com/300x200',
-                            alt: 'Procedimiento 3'
-                        }
-                    ]
-                },
+const route = useRoute();
+const servicio = ref({});
 
-                {
-                    id: 'working hours',
-                    title: '⌚ Horarios de Atención',
-                    content: 'Lunes a viernes: 9:00 am - 6:00 pm<br>Sabados: 9:00 am - 1:00 pm'
-                },
-                {
-                    id: 'payments',
-                    title: '💰 Formas de pago',
-                    content: 'Efectivo. Bolivianos <br>Dólares y pesos Argentinos. <br>Tarjetas de crédito y debito.'
-                },
-                {
-                    id: 'qr',
-                    title: '📱 QR para compartir Tarjeta',
-                    content: 'Escanea el código QR para compartir esta tarjeta digital.',
-                    qrImage: {
-                        src: 'https://via.placeholder.com/300x300',
-                        alt: 'Código QR para compartir'
-                    }
-                }
+const activeTerm = ref("descripcion");
+const ruta = ref(import.meta.env.VITE_BASE_URL);
+const lightboxVisible = ref(false);
+const selectedImage = ref(null);
 
+function openLightbox(img) {
+  selectedImage.value = img;
+  lightboxVisible.value = true;
+}
 
+function closeLightbox() {
+  lightboxVisible.value = false;
+  selectedImage.value = null;
+}
 
-            ],
-        };
-    },
-    mounted() {
-        this.handleScroll();
-        window.addEventListener('scroll', this.handleScroll);
-    },
-    beforeDestroy() {
-        window.removeEventListener('scroll', this.handleScroll);
-    },
-    methods: {
-        openLightbox(image) {
-            this.lightboxImage = image;
-            this.showLightbox = true;
-        },
-        closeLightbox() {
-            this.showLightbox = false;
-            this.lightboxImage = null;
-        },
-        handleScroll() {
-            const sections = document.querySelectorAll('[id]');
-            let current = '';
-
-            if (window.scrollY < 50) {
-                current = 'page-top';
-            } else {
-                sections.forEach((section) => {
-                    if (section.id !== 'page-top') {
-                        const sectionTop = section.offsetTop;
-                        const sectionHeight = section.clientHeight;
-                        if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
-                            current = section.id;
-                        }
-                    }
-                });
-            }
-
-            if (current) {
-                this.activeTerm = current;
-            }
-        },
-        toggleSection(id) {
-            this.openedSections = {
-                ...this.openedSections,
-                [id]: !this.openedSections[id],
-            };
-        },
-    },
+const getData = async () => {
+  const id = route.params.id;
+  const res = await axios.get(`${ruta.value}/business/getall/${id}`);
+  servicio.value = res.data;
 };
+const getImagesByType = (type) => {
+  if (!servicio.value || !servicio.value.images) {
+    return [];
+  }
+  return servicio.value.images.filter((img) => img.type === type);
+};
+
+const coverImages = computed(() => getImagesByType("cover"));
+const galleryImages = computed(() => getImagesByType("galeria"));
+const qrImage = computed(() => getImagesByType("qr"));
+const certificadoImage = computed(() => getImagesByType("certificado"));
+
+onMounted(getData);
 </script>
 
-<style>
+<style scoped>
 html {
-    scroll-behavior: smooth;
-}
-
-.prose a {
-    color: #17a589;
-    text-decoration: none;
-}
-
-.prose a:hover {
-    text-decoration: underline;
-}
-
-.prose ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+  scroll-behavior: smooth;
 }
 </style>
-```

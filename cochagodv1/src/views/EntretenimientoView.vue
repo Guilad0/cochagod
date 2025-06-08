@@ -137,6 +137,7 @@
           class="business-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100 transition-all duration-300 hover:shadow-lg"
         >
           <div class="relative">
+            <router-link :to="`/detalleentretenimiento/${business.business_id}`">
             <img
               :src="
                 business.logo_url ||
@@ -145,6 +146,7 @@
               :alt="business.name"
               class="w-full h-48 object-cover"
             />
+            </router-link>
             <div
               v-if="business.isFeatured"
               class="absolute top-2 left-2 bg-teal-500 text-white text-xs font-bold px-2 py-1 rounded"
@@ -392,7 +394,7 @@ const categoryClasses = {
 
 const fetchBusinesses = async () => {
   try {
-    const response = await axios.get(`${ruta.value}/business/category/6`);
+    const response = await axios.get(`${ruta.value}/business/category/38`);
     if (Array.isArray(response.data)) {
       businesses.value = response.data.map((b) => ({
         ...b,

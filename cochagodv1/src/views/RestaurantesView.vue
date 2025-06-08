@@ -137,14 +137,16 @@
           class="business-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100 transition-all duration-300 hover:shadow-lg"
         >
           <div class="relative">
-            <img
-              :src="
-                business.logo_url ||
-                'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-              "
-              :alt="business.name"
-              class="w-full h-48 object-cover"
-            />
+            <router-link :to="`/detallenegocio/${business.business_id}`">
+              <img
+                :src="
+                  business.logo_url ||
+                  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                "
+                :alt="business.name"
+                class="w-full h-48 object-cover"
+              />
+            </router-link>
             <div
               v-if="business.isFeatured"
               class="absolute top-2 left-2 bg-teal-500 text-white text-xs font-bold px-2 py-1 rounded"
@@ -406,7 +408,7 @@ const categoryClasses = {
 
 const fetchBusinesses = async () => {
   try {
-    const response = await axios.get(`${ruta.value}/business/category/2`);
+    const response = await axios.get(`${ruta.value}/business/category/38`);
     if (Array.isArray(response.data)) {
       businesses.value = response.data.map((b) => ({
         ...b,

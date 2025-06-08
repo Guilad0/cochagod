@@ -2,15 +2,15 @@
   <div id="page-top">
     <div class="flex">
       <div
-        class="hidden md:block w-64 bg-teal-500/10 text-gray-800 fixed h-screen p-4 overflow-y-auto shadow-md"
+        class="hidden md:block w-64 bg-blue-600/10 text-gray-800 fixed h-screen p-4 overflow-y-auto shadow-md"
       >
         <nav>
           <ul class="space-y-3">
             <li>
               <a
                 href="#page-top"
-                class="px-3 py-2 rounded hover:bg-teal-400 hover:text-white transition-colors flex"
-                :class="{ 'bg-teal-400 text-white': activeTerm === 'page-top' }"
+                class="px-3 py-2 rounded hover:bg-blue-400 hover:text-white transition-colors flex"
+                :class="{ 'bg-blue-400 text-white': activeTerm === 'page-top' }"
                 @click="activeTerm = 'page-top'"
               >
                 Inicio
@@ -19,8 +19,8 @@
             <li v-for="(term, index) in terms" :key="index">
               <a
                 :href="'#' + term.id"
-                class="block px-3 py-2 rounded hover:bg-teal-400 hover:text-white transition-colors"
-                :class="{ 'bg-teal-400 text-white': activeTerm === term.id }"
+                class="block px-3 py-2 rounded hover:bg-blue-400 hover:text-white transition-colors"
+                :class="{ 'bg-blue-400 text-white': activeTerm === term.id }"
                 @click="activeTerm = term.id"
               >
                 {{ term.title }}
@@ -33,13 +33,13 @@
       <div class="w-full bg-white text-gray-800 md:ml-64" id="main-content">
         <div class="relative mb-10">
           <img
-            class="w-full h-[220px] rounded shadow object-cover"
+            class="w-full h-[220px] rounded shadow bg-blue-400 object-cover"
             :src="coverImages[1]?.url_image || '/img/cochago.png'"
             alt="Imagen grande"
           />
 
           <div
-            class="absolute -bottom-10 left-4 bg-teal-400 border-2 border-white p-3 shadow-lg w-[160px] h-[160px] flex items-center justify-center rounded-full"
+            class="absolute -bottom-10 left-4 bg-blue-600 border-2 border-white p-3 shadow-lg w-[160px] h-[160px] flex items-center justify-center rounded-full"
           >
             <img
               class="object-contain max-h-full max-w-full rounded-full"
@@ -61,21 +61,21 @@
         <br />
         <div class="px-4">
           <div id="acceptance" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-teal-500 flex items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600 flex items-center">
               Descripción
             </h2>
             <p v-html="alojamiento?.description || 'Sin descripción disponible'"></p>
           </div>
 
           <div id="description" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-teal-500 flex items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600 flex items-center">
               Productos / Servicios
             </h2>
             <p v-html="alojamiento?.servicios || 'Sin descripción disponible'"></p>
           </div>
 
           <div id="gallery" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-teal-500 flex items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600 flex items-center">
               Galería
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -101,7 +101,7 @@
           </div>
 
           <div id="working-hours" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-teal-500 flex items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600 flex items-center">
               Horarios de Atención
             </h2>
             <p>
@@ -111,7 +111,7 @@
           </div>
 
           <div id="certificados" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-teal-500 flex items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600 flex items-center">
               Certificados
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -137,42 +137,42 @@
           </div>
 
           <div id="payments" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-teal-500 flex items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600 flex items-center">
               Formas de Pago
             </h2>
             <p>Efectivo, tarjeta de crédito, transferencia bancaria.</p>
           </div>
 
           <div id="contact" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-teal-500 flex items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600 flex items-center">
               Contactos
             </h2>
             <i class="fas fa-phone-alt text-green-400 pr-2"></i>
             <a
               :href="`tel:${alojamiento.phone}`"
               target="_blank"
-              class="text-gray-600 hover:text-teal-500 transition-colors"
+              class="text-gray-600 hover:text-blue-500 transition-colors"
             >
               {{ alojamiento?.phone || "Sin teléfono disponible" }}
             </a>
 
             <br />
 
-            <i class="fas fa-envelope text-teal-500 mr-2"></i>
+            <i class="fas fa-envelope text-blue-600 mr-2"></i>
             <a
               :href="`mailto:${alojamiento.email}`"
               target="_blank"
-              class="text-gray-600 hover:text-teal-500"
+              class="text-gray-600 hover:text-blue-600"
             >
               {{ alojamiento.email }}
             </a>
             <br />
 
-            <i class="fab fa-facebook-f text-teal-500 mr-2"></i>
+            <i class="fab fa-facebook-f text-blue-600 mr-2"></i>
             <a
               :href="alojamiento.link_facebook"
               target="_blank"
-              class="text-gray-600 hover:text-teal-500"
+              class="text-gray-600 hover:text-blue-600"
             >
               Facebook
             </a>
@@ -182,7 +182,7 @@
             <a
               :href="alojamiento.links"
               target="_blank"
-              class="text-gray-600 hover:text-teal-500"
+              class="text-gray-600 hover:text-blue-600"
             >
               Instagram
             </a>
@@ -192,7 +192,7 @@
             <a
               :href="alojamiento.link_tiktok"
               target="_blank"
-              class="text-gray-600 hover:text-teal-500"
+              class="text-gray-600 hover:text-blue-600"
             >
               TikTok
             </a>
@@ -202,14 +202,14 @@
             <a
               :href="alojamiento.location"
               target="_blank"
-              class="text-gray-600 hover:text-teal-500"
+              class="text-gray-600 hover:text-blue-600"
             >
               {{ alojamiento.address }}
             </a>
           </div>
 
           <div id="qr" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-teal-500 flex items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600 flex items-center">
               Compartir
             </h2>
             <div class="flex justify-center">

@@ -13,6 +13,9 @@ import NotFound from "@/views/NotFound.vue";// <-- Para el 404 johna
 import FaqsView from '@/views/FaqsView.vue';
 import TServ from '@/views/TServ.vue';
 import TResto from '@/views/TResto.vue';
+import DetalleTurismo from '@/views/DetalleTurismo.vue';
+import DetalleAlojamiento from '@/views/DetalleAlojamiento.vue';
+import DetalleEntretenimiento from '@/views/DetalleEntretenimiento.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -87,16 +90,42 @@ const router = createRouter({
     name: 'Terminos',
     component: () => import('../views/Terminos.vue')
     },
+    // {
+    //   path: '/tserv', 
+    // name: 'TServ',
+    // component: TServ
+    // },
     {
-      path: '/tserv', 
-    name: 'TServ',
-    component: TServ
+      path: '/detallenegocio/:id',
+      name: 'detalleNegocio',
+      component: TResto
     },
     {
-      path: '/tresto', 
-    name: 'TResto',
-    component: TResto
+      path: '/detalleservicio/:id',
+      name: 'detalleServicio',
+      component: TServ
     },
+    {
+      path: '/detalleturismo/:id',
+      name: 'detalleTurismo',
+      component: DetalleTurismo
+    },
+    
+    {
+      path: '/detallealojamiento/:id',
+      name: 'detalleAlojamiento',
+      component: DetalleAlojamiento
+    },
+    {
+      path: '/detalleentretenimiento/:id',
+      name: 'detalleEntretenimiento',
+      component: DetalleEntretenimiento
+    },
+    {
+      path: '/detallecomercios/:id',
+      name: 'detalleComercios',
+      component: TServ
+    }
   ],
 })
 
