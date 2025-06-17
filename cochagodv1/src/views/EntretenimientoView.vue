@@ -394,7 +394,7 @@ const categoryClasses = {
 
 const fetchBusinesses = async () => {
   try {
-    const response = await axios.get(`${ruta.value}/business/category/38`);
+    const response = await axios.get(`${ruta.value}/business/category/3`);
     if (Array.isArray(response.data)) {
       businesses.value = response.data.map((b) => ({
         ...b,
