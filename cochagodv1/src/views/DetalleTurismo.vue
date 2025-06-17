@@ -39,10 +39,10 @@
           />
 
           <div
-            class="absolute -bottom-10 left-4 bg-blue-600 border-2 border-white p-3 shadow-lg w-[160px] h-[160px] flex items-center justify-center rounded-full"
+            class="absolute -bottom-10 left-4 bg-blue-600 border-2 border-white shadow-lg w-[160px] h-[160px] flex items-center justify-center rounded-full"
           >
             <img
-              class="object-contain max-h-full max-w-full rounded-full"
+              class="object-cover h-full w-full rounded-full"
               :src="
                 alojamiento?.logo_url ||
                 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
@@ -52,10 +52,10 @@
           </div>
 
           <div class="absolute left-[180px] top-[140px] right-4 sm:left-[200px]">
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-800">
+            <h2 class="text-xl sm:text-2xl font-bold text-white">
               {{ alojamiento?.name }}
             </h2>
-            <p class="text-base sm:text-lg text-gray-600">{{ alojamiento?.address }}</p>
+            <p class="text-base sm:text-lg text-white">{{ alojamiento?.address }}</p>
           </div>
         </div>
         <br />
