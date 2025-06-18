@@ -116,7 +116,6 @@
             :href="item.href"
             :text="item.text"
             :mobile="true"
-            :active="index === 0"
             :is-scrolled="isScrolled"
             :color-index="index"
           />
@@ -131,7 +130,7 @@
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-4"
       >
-        <div v-if="isMenuOpen" class="pt-4 pb-3 border-t border-gray-700">
+        <div v-if="isMenuOpen" class="pt-4 pb-3 border-t border-gray-900 bg-gray-900/80">
           <div class="px-2 space-y-3">
             <div
               class="flex items-center bg-gray-800 p-2 rounded-md overflow-hidden shadow-inner"
