@@ -34,9 +34,14 @@
         <!-- estos estilos cambiar para todas las vistas cpge -->
         <div class="relative mb-10">
           <img
-            class="w-full h-[320px] rounded shadow bg-blue-400 object-cover"
-            :src="coverImages[1]?.url_image || '/img/cochago.png'"
-            alt="Imagen grande"
+            v-if="coverImages && coverImages.url_image"
+            class="w-full h-[320px] rounded shadow object-cover"
+            :src="coverImages.url_image"
+            alt="IMG_COVER"
+          />
+          <div
+            v-else
+            class="w-full h-[320px] rounded shadow bg-gradient-to-br from-blue-600 to-gray-800"
           />
 
           <div
@@ -44,15 +49,12 @@
           >
             <img
               class="object-cover h-full w-full rounded-full"
-              :src="
-                alojamiento?.logo_url ||
-                'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-              "
+              :src="alojamiento?.logo_url || cochago"
               alt="Logo pequeño"
             />
           </div>
 
-          <div class="absolute left-[180px] top-[140px] right-4 sm:left-[200px]">
+          <div class="absolute bottom-0 left-50 p-2">
             <h2 class="text-xl sm:text-2xl font-bold text-white">
               {{ alojamiento?.name }}
             </h2>
@@ -233,6 +235,7 @@
 import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
+import cochago from "/cochago.png";
 
 const route = useRoute();
 const alojamiento = ref({});
@@ -303,8 +306,13 @@ onMounted(() => {
 });
 const getImagesByType = (type) => {
   if (!alojamiento.value || !alojamiento.value.images) {
-    return [];
+    return type === "cover" ? null : [];
   }
+
+  if (type === "cover") {
+    return alojamiento.value.images.find((img) => img.type === type) || null;
+  }
+
   return alojamiento.value.images.filter((img) => img.type === type);
 };
 

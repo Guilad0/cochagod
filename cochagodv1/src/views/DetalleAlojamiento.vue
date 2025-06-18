@@ -33,29 +33,31 @@
       <div class="w-full bg-white text-gray-800 md:ml-64" id="main-content">
         <div class="relative mb-10">
           <img
-            class="w-full h-[220px] rounded shadow bg-purple-400 object-cover"
-            :src="coverImages[1]?.url_image || '/img/cochago.png'"
-            alt="Imagen grande"
+            v-if="coverImages && coverImages.url_image"
+            class="w-full h-[320px] rounded shadow object-cover"
+            :src="coverImages.url_image"
+            alt="IMG_COVER"
+          />
+          <div
+            v-else
+            class="w-full h-[320px] rounded shadow bg-gradient-to-br from-purple-600 to-blue-600"
           />
 
           <div
-            class="absolute -bottom-10 left-4 bg-purple-500 border-2 border-white p-3 shadow-lg w-[160px] h-[160px] flex items-center justify-center rounded-full"
+            class="absolute -bottom-10 left-4 bg-purple-500 border-2 border-white shadow-lg w-[160px] h-[160px] flex items-center justify-center rounded-full"
           >
             <img
-              class="object-contain max-h-full max-w-full rounded-full"
-              :src="
-                alojamiento?.logo_url ||
-                'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-              "
+              class="object-cover h-full w-full rounded-full"
+              :src="alojamiento?.logo_url || cochago"
               alt="Logo pequeño"
             />
           </div>
 
-          <div class="absolute left-[180px] top-[140px] right-4 sm:left-[200px]">
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-800">
+          <div class="absolute bottom-0 left-50 p-2">
+            <h2 class="text-xl sm:text-2xl font-bold text-white">
               {{ alojamiento?.name }}
             </h2>
-            <p class="text-base sm:text-lg text-gray-600">{{ alojamiento?.address }}</p>
+            <p class="text-base sm:text-lg text-white">{{ alojamiento?.address }}</p>
           </div>
         </div>
         <br />
@@ -258,6 +260,7 @@
 import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
+import cochago from "/cochago.png";
 
 const route = useRoute();
 const alojamiento = ref({});
@@ -328,8 +331,13 @@ onMounted(() => {
 });
 const getImagesByType = (type) => {
   if (!alojamiento.value || !alojamiento.value.images) {
-    return [];
+    return type === "cover" ? null : [];
   }
+
+  if (type === "cover") {
+    return alojamiento.value.images.find((img) => img.type === type) || null;
+  }
+
   return alojamiento.value.images.filter((img) => img.type === type);
 };
 

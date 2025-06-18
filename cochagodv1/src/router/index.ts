@@ -121,11 +121,7 @@ const router = createRouter({
       name: 'detalleEntretenimiento',
       component: DetalleEntretenimiento
     },
-    {
-      path: '/detallecomercios/:id',
-      name: 'detalleComercios',
-      component: TServ
-    }
+
   ],
 })
 
