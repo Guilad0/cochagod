@@ -31,9 +31,10 @@
       </div>
 
       <div class="w-full bg-white text-gray-800 md:ml-64" id="main-content">
+        <!-- estos estilos cambiar para todas las vistas cpge -->
         <div class="relative mb-10">
           <img
-            class="w-full h-[220px] rounded shadow bg-blue-400 object-cover"
+            class="w-full h-[320px] rounded shadow bg-blue-400 object-cover"
             :src="coverImages[1]?.url_image || '/img/cochago.png'"
             alt="Imagen grande"
           />
@@ -108,32 +109,6 @@
               Lunes a viernes: 9:00 am - 6:00 pm<br />
               Sábados: 9:00 am - 1:00 pm
             </p>
-          </div>
-
-          <div id="certificados" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-blue-600 flex items-center">
-              Certificados
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              <div
-                v-for="(img, index) in certificadoImage"
-                :key="index"
-                class="bg-white rounded shadow-md overflow-hidden"
-              >
-                <img
-                  :src="
-                    img.url_image ||
-                    'https://via.placeholder.com/300x200.png?text=Sin+imagen'
-                  "
-                  :alt="img.titulo || `Imagen ${index + 1}`"
-                  class="w-full h-48 object-cover cursor-pointer"
-                  @click="openLightbox(img)"
-                />
-                <div class="p-2 text-sm text-center text-gray-600">
-                  {{ img.titulo || `Imagen ${index + 1}` }}
-                </div>
-              </div>
-            </div>
           </div>
 
           <div id="payments" class="mb-12 scroll-mt-24">

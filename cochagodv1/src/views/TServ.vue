@@ -94,15 +94,15 @@
       <div class="w-full bg-white text-gray-800 md:ml-64 px-4">
         <div class="relative mb-10">
           <img
-            class="w-full h-[220px] rounded shadow bg-orange-400 object-cover"
+            class="w-full h-[320px] rounded shadow bg-orange-400 object-cover"
             alt="Imagen grande"
-            :src="coverImages[1]?.url_image || '/img/cochago.png'"
+            :src="coverImages[0]?.url_image || '/img/cochago.png'"
           />
           <div
-            class="absolute -bottom-10 left-4 bg-orange-400 border-2 border-white p-3 shadow-lg w-[160px] h-[160px] flex items-center justify-center rounded-full"
+            class="absolute -bottom-10 left-4 bg-orange-400 border-2 border-white shadow-lg w-[160px] h-[160px] flex items-center justify-center rounded-full"
           >
             <img
-              class="object-contain h-30 w-30 rounded-full"
+              class="object-cover h-full w-full rounded-full"
               :src="
                 servicio.logo_url ||
                 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
