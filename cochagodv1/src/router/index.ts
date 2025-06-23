@@ -16,17 +16,18 @@ import TResto from '@/views/TResto.vue';
 import DetalleTurismo from '@/views/DetalleTurismo.vue';
 import DetalleAlojamiento from '@/views/DetalleAlojamiento.vue';
 import DetalleEntretenimiento from '@/views/DetalleEntretenimiento.vue';
+import QRView from '@/views/QRView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    
+
     {
       path: '/',
       name: 'Home',
       component: HomeView
-    }, 
-   
+    },
+
     {
       path: '/gastronomia/:id',
       name: 'TarjetaGastro',
@@ -76,19 +77,19 @@ const router = createRouter({
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }, // <-- Para el 404 johna
 
     {
-      path: '/faqs', 
-    name: 'Faqs',
-    component: FaqsView
+      path: '/faqs',
+      name: 'Faqs',
+      component: FaqsView
     },
     {
-      path: '/politica', 
-    name: 'Politica',
-    component: () => import('../views/Politica.vue')
+      path: '/politica',
+      name: 'Politica',
+      component: () => import('../views/Politica.vue')
     },
     {
-      path: '/terminos', 
-    name: 'Terminos',
-    component: () => import('../views/Terminos.vue')
+      path: '/terminos',
+      name: 'Terminos',
+      component: () => import('../views/Terminos.vue')
     },
     // {
     //   path: '/tserv', 
@@ -110,7 +111,7 @@ const router = createRouter({
       name: 'detalleTurismo',
       component: DetalleTurismo
     },
-    
+
     {
       path: '/detallealojamiento/:id',
       name: 'detalleAlojamiento',
@@ -125,7 +126,12 @@ const router = createRouter({
       path: '/detallecomercios/:id',
       name: 'detalleComercios',
       component: TServ
-    }
+    },
+    {
+      path: '/qr',
+      name: 'QR',
+      component: QRView,
+    },
   ],
 })
 
