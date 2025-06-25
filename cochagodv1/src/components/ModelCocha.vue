@@ -62,6 +62,7 @@ onMounted(() => {
   controls.autoRotateSpeed = 2.0;
   controls.enableZoom = false;
   controls.enablePan = false;
+  controls.enabled = false;
   controls.update();
 
   const light = new THREE.DirectionalLight(0xffffff, 1);
