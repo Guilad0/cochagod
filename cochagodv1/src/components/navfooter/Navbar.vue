@@ -35,7 +35,7 @@
             :is-scrolled="isScrolled"
             :color-index="index"
           />
-          <div class="relative flex items-center">
+          <!-- <div class="relative flex items-center">
             <input
               type="text"
               placeholder="Buscar destinos..."
@@ -60,7 +60,7 @@
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
             </button>
-          </div>
+          </div> -->
           <GetLucky />
         </div>
 
@@ -132,7 +132,7 @@
       >
         <div v-if="isMenuOpen" class="pt-4 pb-3 border-t border-gray-900 bg-gray-900/80">
           <div class="px-2 space-y-3">
-            <div
+            <!-- <div
               class="flex items-center bg-gray-800 p-2 rounded-md overflow-hidden shadow-inner"
             >
               <input
@@ -158,7 +158,7 @@
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
               </button>
-            </div>
+            </div> -->
             <GetLucky />
           </div>
         </div>
