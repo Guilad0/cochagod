@@ -23,11 +23,10 @@
     </div>
 
     <div class="w-full md:w-1/2 h-[400px] md:h-full flex items-center justify-center">
-      <div class="absolute inset-0 z-10" @touchmove.prevent></div>
-      <div
-        ref="canvasContainer"
-        class="w-[90vw] h-[70vh] md:w-[600px] md:h-[600px] rounded-2xl"
-      ></div>
+      <div class="relative w-[90vw] h-[70vh] md:w-[600px] md:h-[600px] rounded-2xl">
+        <div class="absolute inset-0 z-10" @touchmove.prevent></div>
+        <div ref="canvasContainer" class="w-full h-full rounded-2xl"></div>
+      </div>
     </div>
   </div>
 </template>
