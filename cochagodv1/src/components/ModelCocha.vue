@@ -1,6 +1,5 @@
 <template>
-  <div class="h-screen flex flex-col md:flex-row">
-    <!-- <div
+  <!-- <div
       class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm"
     >
       <div
@@ -8,7 +7,7 @@
       ></div>
       <p class="text-orange-700 font-semibold text-lg">Cargando experiencia Cochago...</p>
     </div> -->
-
+  <div class="h-screen flex flex-col md:flex-row">
     <div class="w-full md:w-1/2 flex items-center justify-center p-8">
       <div class="max-w-md space-y-6 text-center md:text-left">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
@@ -24,7 +23,7 @@
 
     <div class="w-full md:w-1/2 h-[400px] md:h-full flex items-center justify-center">
       <div class="relative w-[90vw] h-[70vh] md:w-[600px] md:h-[600px] rounded-2xl">
-        <div class="absolute inset-0 z-10" @touchmove.prevent></div>
+        <div class="absolute inset-0 z-10" @touchmove.prevent.stop></div>
         <div ref="canvasContainer" class="w-full h-full rounded-2xl"></div>
       </div>
     </div>
