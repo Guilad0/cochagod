@@ -15,7 +15,7 @@
         Comunícate con nosotros,
       </span>
 
-      <span class="text-4xl md:text-6xl font-bold text-teal-400 mb-4">
+      <span class="text-4xl md:text-6xl font-bold text-sky-500 mb-4">
         para ser uno de nuestros afiliados
       </span>
 
@@ -27,14 +27,14 @@
         unirte a nosotros! Juntos podemos crecer, conectar con más personas y hacer
         brillar nuestra querida llajta. Tu negocio tiene un espacio en nuestro corazón y
         en nuestra red."
-        <span class="text-amber-200 font-semibold">Contactanos</span> y obtener más
+        <span class="text-orange-400 font-bold">Contactanos</span> y obtener más
         información.
       </p>
 
       <div class="mt-6 space-y-4">
         <a
           href="https://wa.me/59175946778"
-          class="block text-xl text-teal-500 hover:text-orange-400 font-semibold"
+          class="block text-xl text-sky-500 hover:text-orange-500 font-semibold"
           target="_blank"
         >
           Envianos un mensaje por WhatsApp

@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Norwester';
+  src: url('../assets/fonts/norwester/norwester.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.primary-font {
+  font-family: 'Norwester', sans-serif;
+}

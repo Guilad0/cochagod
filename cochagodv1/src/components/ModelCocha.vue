@@ -13,7 +13,7 @@
       <div class="max-w-md space-y-6 text-center md:text-left">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
           Explora <span class="text-orange-500">Cochabamba</span> con
-          <span class="text-teal-500">CochaGo</span>
+          <span class="font-light text-sky-500 primary-font">CochaGo!</span>
         </h1>
         <p class="text-lg text-gray-600 mb-12">
           Descubre la riqueza cultural, histórica y natural de la ciudad jardín. Déjate

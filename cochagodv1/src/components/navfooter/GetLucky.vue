@@ -2,7 +2,7 @@
   <div class="p-4">
     <button
       @click="tryLuck"
-      class="px-4 py-2 text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg bg-teal-600 hover:bg-teal-500 active:bg-teal-700 mb-1 w-full sm:w-auto justify-center"
+      class="px-4 py-2 text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-sky-600 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg bg-orange-600 hover:bg-orange-500 active:bg-orange-700 mb-1 w-full sm:w-auto justify-center"
       :disabled="isRolling"
     >
       <div v-if="isRolling" class="flex flex-row">
@@ -26,7 +26,7 @@
           </button>
 
           <h2 class="text-2xl font-bold mb-4 text-center">
-            ¡Nos Vamos a: <span class="text-teal-400">{{ randomBusiness.name }}</span> !
+            ¡Nos Vamos a: <span class="text-sky-400">{{ randomBusiness.name }}</span> !
           </h2>
 
           <div

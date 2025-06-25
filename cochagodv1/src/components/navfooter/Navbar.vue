@@ -10,16 +10,16 @@
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex-shrink-0 flex items-center">
-          <a href="/" class="text-xl md:text-3xl font-bold tracking-wide group font-mono">
+          <a href="/" class="text-xl md:text-3xl tracking-wide group primary-font">
             <span
               :class="isScrolled ? 'text-orange-500' : 'text-orange-500'"
               class="transition-all duration-300 ease-in-out group-hover:text-orange-400"
               >COCHA</span
             >
             <span
-              :class="isScrolled ? 'text-teal-400' : 'text-teal-500'"
-              class="transition-all duration-300 ease-in-out group-hover:text-teal-500"
-              >GO</span
+              :class="isScrolled ? 'text-sky-500' : 'text-sky-500'"
+              class="transition-all duration-300 ease-in-out group-hover:text-sky-400"
+              >GO!</span
             >
             <!-- <img src="@/assets/img/logo.jpg" alt="" class="w-30 h-14" /> -->
           </a>
@@ -40,7 +40,7 @@
               type="text"
               placeholder="Buscar destinos..."
               :class="isScrolled ? 'bg-black/40' : 'bg-black/50'"
-              class="border-none rounded-md py-1 px-3 w-40 lg:w-48 text-sm text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:w-56 transition-all duration-300"
+              class="border-none rounded-md py-1 px-3 w-40 lg:w-48 text-sm text-white focus:outline-none focus:ring-2 focus:ring-sky-400 focus:w-56 transition-all duration-300"
               ref="desktopSearchInput"
             />
             <button
@@ -69,10 +69,10 @@
             @click="toggleMenu"
             :class="
               isScrolled
-                ? 'text-black hover:bg-teal-400 font-semibold'
-                : 'text-black hover:bg-teal-400 '
+                ? 'text-black hover:bg-sky-400 font-semibold'
+                : 'text-black hover:bg-sky-400 '
             "
-            class="p-2 rounded-xl hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 ease-in-out"
+            class="p-2 rounded-xl hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 ease-in-out"
             :aria-expanded="isMenuOpen"
             aria-controls="mobile-menu"
             aria-label="Toggle menu"

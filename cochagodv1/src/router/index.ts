@@ -9,7 +9,7 @@ import Alojamientos from '@/views/Alojamientos.vue';
 import ServiciosView from '@/views/ServiciosView.vue';
 import TurismoV from '@/views/TurismoV.vue';
 import msx from '@/views/msx.vue';
-import NotFound from "@/views/NotFound.vue";// <-- Para el 404 johna
+import NotFound from "@/views/Cuatro.vue";// <-- Para el 404 johna
 import FaqsView from '@/views/FaqsView.vue';
 import TServ from '@/views/TServ.vue';
 import TResto from '@/views/TResto.vue';
