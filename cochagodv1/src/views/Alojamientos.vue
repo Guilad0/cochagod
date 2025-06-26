@@ -142,10 +142,7 @@
           <div class="relative">
             <router-link :to="`/detallealojamiento/${business.business_id}`">
               <img
-                :src="
-                  business.logo_url ||
-                  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-                "
+                :src="business.logo_url || cochago"
                 :alt="business.name"
                 class="w-full h-48 object-cover"
               />
@@ -362,6 +359,7 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import axios from "axios";
+import cochago from "/cochago.png";
 
 const businesses = ref([]);
 const loading = ref(true);
