@@ -114,8 +114,8 @@
           >
             <img
               class="object-cover h-full w-full rounded-full"
-              :src="servicio.logo_url || cochago"
-              alt="Logo pequeño"
+              :src="alojamiento?.logo_url || cochago"
+              alt=""
             />
           </div>
         </div>
@@ -201,6 +201,16 @@
           </a>
 
           <br />
+          <i class="fas fa-phone-alt text-green-400 pr-2"></i>
+          <a
+            :href="`tel:${servicio.phone_two}`"
+            target="_blank"
+            class="text-gray-600 hover:text-orange-500 transition-colors"
+          >
+            {{ servicio?.phone_two || "Sin teléfono disponible" }}
+          </a>
+
+          <br />
 
           <i class="fas fa-envelope text-red-500 mr-2"></i>
           <a
@@ -262,8 +272,8 @@
           <div class="flex justify-center">
             <div class="bg-white rounded shadow-md overflow-hidden w-64 cursor-pointer">
               <img
-                :src="qrImage[0]?.url_image || '/img/cochago.png'"
-                @click="openLightbox(qrImage[0]?.url_image || '/img/cochago.png')"
+                :src="servicio.url_qr || cochago"
+                @click="openLightbox(servicio.url_qr || cochago)"
               />
               <div class="p-2 text-sm text-center text-gray-600">
                 Escanea este código QR para compartir.
@@ -292,7 +302,7 @@
       />
       <div class="text-white text-center max-w-lg px-4">
         <h3 class="text-xl font-semibold mb-2">{{ selectedImage.titulo || "Imagen" }}</h3>
-        <p>{{ selectedImage.descripcion || "Sin descripción disponible" }}</p>
+        <p>{{ selectedImage.descripcion || "Cochago: Munaylla Llajta" }}</p>
       </div>
     </div>
   </div>
