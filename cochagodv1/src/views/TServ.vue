@@ -77,6 +77,7 @@
                 Formas de Pago
               </a>
             </li>
+
             <li>
               <a
                 href="#qr"
@@ -267,20 +268,26 @@
           <p>Efectivo, tarjeta de crédito, transferencia bancaria.</p>
         </section>
 
-        <section id="qr" class="mb-12 scroll-mt-24">
-          <h2 class="text-2xl font-semibold mb-4 text-orange-400">Compartir</h2>
-          <div class="flex justify-center">
-            <div class="bg-white rounded shadow-md overflow-hidden w-64 cursor-pointer">
-              <img
-                :src="servicio.url_qr || cochago"
-                @click="openLightbox(servicio.url_qr || cochago)"
-              />
-              <div class="p-2 text-sm text-center text-gray-600">
-                Escanea este código QR para compartir.
+        <div class="flex md:flex-row flex-col md:space-x-12">
+          <div class="mb-12 scroll-mt-24">
+            <h2 class="text-2xl font-semibold mb-4 text-orange-400">Mapa del Sitio</h2>
+            <div v-html="servicio.map" class="md:w-1/2 md-12"></div>
+          </div>
+          <section id="qr" class="mb-12 scroll-mt-24">
+            <h2 class="text-2xl font-semibold mb-4 text-orange-400">Compartir</h2>
+            <div class="flex justify-center">
+              <div class="bg-white rounded shadow-md overflow-hidden w-64 cursor-pointer">
+                <img
+                  :src="servicio.url_qr || cochago"
+                  @click="openLightbox(servicio.url_qr || cochago)"
+                />
+                <div class="p-2 text-sm text-center text-gray-600">
+                  Escanea este código QR para compartir.
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </div>
     <div
@@ -313,6 +320,7 @@ import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import cochago from "/cochago.png";
+import Iframe from "react-iframe";
 
 const route = useRoute();
 const servicio = ref({});
