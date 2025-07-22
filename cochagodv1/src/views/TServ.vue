@@ -320,7 +320,6 @@ import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import cochago from "/cochago.png";
-import Iframe from "react-iframe";
 
 const route = useRoute();
 const servicio = ref({});
