@@ -138,13 +138,6 @@
             </div>
           </div>
 
-          <div id="payments" class="mb-12 scroll-mt-24">
-            <h2 class="text-2xl font-semibold mb-4 text-pink-600 flex items-center">
-              Formas de Pago
-            </h2>
-            <p>Efectivo, tarjeta de crédito, transferencia bancaria.</p>
-          </div>
-
           <div id="contact" class="mb-12 scroll-mt-24">
             <h2 class="text-2xl font-semibold mb-4 text-pink-600 flex items-center">
               Contactos
@@ -219,22 +212,34 @@
               {{ alojamiento.address }}
             </a>
           </div>
-
-          <div id="qr" class="mb-12 scroll-mt-24">
+          <div id="payments" class="mb-12 scroll-mt-24">
             <h2 class="text-2xl font-semibold mb-4 text-pink-600 flex items-center">
-              Compartir
+              Formas de Pago
             </h2>
-            <div class="flex justify-center">
-              <div class="bg-white rounded shadow-md overflow-hidden w-64 cursor-pointer">
-                <img
-                  :src="alojamiento.url_qr || cochago"
-                  @click="openLightbox(alojamiento.url_qr || cochago)"
-                />
-                <div class="p-2 text-sm text-center text-gray-600">
-                  Escanea este código QR para compartir.
+            <p>Efectivo, tarjeta de crédito, transferencia bancaria.</p>
+          </div>
+
+          <div class="flex md:flex-row flex-col md:space-x-12">
+            <div class="mb-12 scroll-mt-24">
+              <h2 class="text-2xl font-semibold mb-4 text-orange-400">Mapa del Sitio</h2>
+              <div v-html="alojamiento.map" class="md:w-1/2 md-12"></div>
+            </div>
+            <section id="qr" class="mb-12 scroll-mt-24">
+              <h2 class="text-2xl font-semibold mb-4 text-orange-400">Compartir</h2>
+              <div class="flex justify-center">
+                <div
+                  class="bg-white rounded shadow-md overflow-hidden w-64 cursor-pointer"
+                >
+                  <img
+                    :src="alojamiento.url_qr || cochago"
+                    @click="openLightbox(alojamiento.url_qr || cochago)"
+                  />
+                  <div class="p-2 text-sm text-center text-gray-600">
+                    Escanea este código QR para compartir.
+                  </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </div>
