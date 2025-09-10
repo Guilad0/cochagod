@@ -20,34 +20,46 @@ module.exports = {
   
 
   async create(data) {
-    const {
-      name,
-      description,
-      address,
-      phone,
-      email,
-      website,
-      category,
-      logo_url,
-      is_active,
-      location,
-      links,
-      zone,
-      rating,
-      category_id,
-      subtipo,
-      link_facebook,
-      link_tiktok,
-      servicios
-    } = data;
-  
-    const [result] = await db.query(
-      "INSERT INTO business (name, description, address, phone, email, website, category, logo_url, is_active, location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok, servicios) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-      [name, description, address, phone, email, website, category, logo_url, is_active, location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok, servicios]
-    );
-  
-    return { id: result.insertId, ...data };
-  },  
+  const {
+    name,
+    description,
+    address,
+    phone,
+    email,
+    website,
+    category,
+    logo_url,
+    is_active,
+    location,
+    links,
+    zone,
+    rating,
+    category_id,
+    subtipo,
+    link_facebook,
+    link_tiktok,
+    servicios,
+    phone_two,
+    url_qr,
+    map,
+    end_day,
+  } = data;
+
+  const [result] = await db.query(
+    `INSERT INTO business 
+    (name, description, address, phone, email, website, category, logo_url, 
+    is_active, location, links, zone, rating, category_id, subtipo, link_facebook, 
+    link_tiktok, servicios, phone_two, url_qr, map, end_day) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      name, description, address, phone, email, website, category, logo_url,
+      is_active, location, links, zone, rating, category_id, subtipo,
+      link_facebook, link_tiktok, servicios, phone_two, url_qr, map, end_day,
+    ]
+  );
+
+  return { id: result.insertId, ...data };
+},
 
   async update(id, data) {
     const { name, description, address, phone, email, website, category, logo_url,location, links, zone, rating, category_id, subtipo, link_facebook, link_tiktok, servicios } = data;
