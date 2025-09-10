@@ -16,6 +16,7 @@ import TResto from '@/views/TResto.vue';
 import DetalleTurismo from '@/views/DetalleTurismo.vue';
 import DetalleAlojamiento from '@/views/DetalleAlojamiento.vue';
 import DetalleEntretenimiento from '@/views/DetalleEntretenimiento.vue';
+import ThisIsAForm from '@/views/ThisIsAForm.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -121,6 +122,11 @@ const router = createRouter({
       name: 'detalleEntretenimiento',
       component: DetalleEntretenimiento
     },
+    {
+      path: '/d024f860-50bf-49c2-9901-a21a31c0941e',
+      name: 'Form Busineess',
+      component: ThisIsAForm
+    }
 
   ],
 })
