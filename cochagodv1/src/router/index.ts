@@ -17,7 +17,7 @@ import DetalleTurismo from '@/views/DetalleTurismo.vue';
 import DetalleAlojamiento from '@/views/DetalleAlojamiento.vue';
 import DetalleEntretenimiento from '@/views/DetalleEntretenimiento.vue';
 import ThisIsAForm from '@/views/ThisIsAForm.vue';
-
+import DashboardGallery from '@/views/DashboardGallery.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -27,6 +27,12 @@ const router = createRouter({
       name: 'Home',
       component: HomeView
     }, 
+
+    {
+      path: '/ranking',
+      name: 'Ranking de fotos CochaGo',
+      component: DashboardGallery,
+    },
    
     {
       path: '/gastronomia/:id',
