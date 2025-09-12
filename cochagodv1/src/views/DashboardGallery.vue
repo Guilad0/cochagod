@@ -23,11 +23,11 @@ onMounted(async () => {
 const photos = ref([
   {
     id: 1,
-    title: "Atardecer en Cristo",
-    location: "Cerro San Pedro",
-    photographer: "María González",
-    avatar: "/cochago.png",
-    likes: 124,
+    title: "No sirve ganar en la cancha si perdemos en la tierra.",
+    location: "Plaza de las Banderas",
+    photographer: "Wally cochalo",
+    avatar: "/img/arbol-oficial.jpg",
+    likes: 14,
     position: [-5, -3, 0],
     rotation: [0.2, 0.5, 0],
     scale: [3.5, 3.5, 3.5],
@@ -38,11 +38,11 @@ const photos = ref([
   },
   {
     id: 3,
-    title: "Noche en la Plaza",
-    location: "Plaza 14 de Septiembre",
-    photographer: "Lucía Fernández",
-    avatar: "/cochago.png",
-    likes: 210,
+    title: "BomBom K'encha!!",
+    location: "cochabamba",
+    photographer: "Ronald Chavez",
+    avatar: "/img/manfred_saltenia.jpg",
+    likes: 9,
     position: [0, -3, 0],
     rotation: [0.2, 0.5, 0],
     scale: [2.5, 2.5, 2.5],
@@ -52,11 +52,11 @@ const photos = ref([
   },
   {
     id: 2,
-    title: "Vista desde Tunari",
-    location: "Cordillera Tunari",
-    photographer: "Juan Pérez",
-    avatar: "/cochago.png",
-    likes: 98,
+    title: "QuillaYork!!",
+    location: "Quillacollo",
+    photographer: "Diego Soliz",
+    avatar: "/img/quillayork.jpg",
+    likes: 7,
     position: [5, -3, 0],
     rotation: [0.2, 0.5, 0],
     scale: [1.7, 1.7, 1.7],
@@ -234,26 +234,27 @@ const orderedPhotos = computed(() =>
               <img
                 :src="photo.avatar"
                 alt="avatar"
-                class="w-12 h-8 xl:w-16 xl:h-16 rounded-md object-cover"
+                class="w-12 h-8 xl:w-24 xl:h-16 rounded-md object-cover"
               />
               <div class="flex-1 min-w-0">
-                <p class="text-white font-semibold text-xs xl:text-sm truncate">
-                  {{ photo.title }}
-                </p>
-                <p class="text-white text-xs truncate">{{ photo.location }}</p>
+                <span
+                  :class="{
+                    'text-yellow-400': photo.color === 'Oro',
+                    'text-gray-300': photo.color === 'Plata',
+                    'text-amber-600': photo.color === 'Bronce',
+                  }"
+                  class="font-bold text-xs xl:text-sm"
+                >
+                  {{ photo.color }} - {{ photo.ranking }}
+                </span>
               </div>
             </div>
             <p class="text-pink-600 font-medium mt-1 text-xs">❤️ {{ photo.likes }}</p>
-            <span
-              :class="{
-                'text-yellow-400': photo.color === 'Oro',
-                'text-gray-300': photo.color === 'Plata',
-                'text-amber-600': photo.color === 'Bronce',
-              }"
-              class="font-bold text-xs xl:text-sm"
-            >
-              {{ photo.color }} - {{ photo.ranking }}
-            </span>
+
+            <p class="text-white font-semibold text-xs xl:text-sm">
+              {{ photo.title }}
+            </p>
+            <p class="text-white text-xs truncate">{{ photo.location }}</p>
             <span class="block text-xs text-white mt-1 truncate">
               📸 {{ photo.photographer }}
             </span>
